@@ -2,10 +2,7 @@ $(document).ready(function () {
   var titleInput = $("#title-input");
   var bodyInput = $("#body-input");
   var submitButton = $("#submit-button");
-  submitButton.on("click", function (event) {
-    event.preventDefault();
-    alert('hi');
-  });
+
 
   function Idea(title, body, id, quality) {
     this.title = title;
@@ -15,7 +12,13 @@ $(document).ready(function () {
   }
 
   Idea.prototype.create = function () {
-
+    console.log("hi");
   };
+
+  submitButton.on("click", function (event) {
+    event.preventDefault();
+    var idea = new Idea();
+    idea.create();
+  });
 
 }); //end of jQuery body
