@@ -12,13 +12,15 @@ $(document).ready(function () {
   }
 
   Idea.prototype.create = function () {
-    console.log("hi");
+
   };
 
   submitButton.on("click", function (event) {
     event.preventDefault();
-    var idea = new Idea();
-    idea.create();
+    var newTitle = titleInput.val();
+    var newBody = bodyInput.val();
+    var idea = new Idea(newTitle, newBody);
+    console.log(idea);
   });
 
 }); //end of jQuery body
