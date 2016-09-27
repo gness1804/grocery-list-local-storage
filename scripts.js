@@ -4,8 +4,6 @@ $(document).ready(function () {
   var submitButton = $("#submit-button");
   var ideasMasterContainer = $("#ideas-master-container");
 
-  var ideas = [];
-
   function Idea(title, body, id, quality) {
     this.title = title;
     this.body = body;
@@ -13,32 +11,17 @@ $(document).ready(function () {
     this.quality = quality || "swill";
   }
 
-  function createNewIdea(newTitle, newBody) {
-    ideas.push(new Idea(newTitle, newBody));
-    localStorage.setItem("ideas", JSON.stringify(ideas));
-  }
+  var ideaManager = {
 
-  function renderIdeas() {
-    ideas.forEach(function (idea) {
-      var toHTML = (`
-        <section class="indiv-idea-box" id=${idea.id}>
-          <h2>${idea.title}</h2>
-          <h4>${idea.body}</h4>
-          <p class="idea-quality">${idea.quality}</p>
-        </section>
-        `);
-        // ideasMasterContainer.html(toHTML);
-        ideasMasterContainer.prepend(toHTML);
-    }); // end of forEach
-  }
+    ideas: [],
 
-  submitButton.on("click", function (event) {
-    event.preventDefault();
+
+  }; // end of ideaManager
+
+  submitButton.on("click", function () {
     var newTitle = titleInput.val();
     var newBody = bodyInput.val();
-    createNewIdea(newTitle, newBody);
-    renderIdeas();
-    console.log(ideas);
+    alert(newBody);
   });
 
 }); //end of jQuery body
