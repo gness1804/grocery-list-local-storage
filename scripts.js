@@ -39,6 +39,15 @@ $(document).ready(function () {
       }); // end of forEach
     }, // end of render
 
+    retrieve: function () {
+      var retrievedIdeas = JSON.parse(localStorage.getItem("ideas"));
+      if (retrievedIdeas) {
+        retrievedIdeas.forEach(function (idea) {
+          ideaManager.ideas.push(new Idea(idea.title, idea.body, idea.id, idea.quality));
+        });
+      } // end of if statement
+    }, // end of retrieve
+
     store: function () {
       localStorage.setItem("ideas", JSON.stringify(this.ideas));
       this.render();
@@ -51,5 +60,8 @@ $(document).ready(function () {
     var newBody = bodyInput.val();
     ideaManager.add(newTitle, newBody);
   });
+
+  ideaManager.retrieve();
+  ideaManager.render();
 
 }); //end of jQuery body
