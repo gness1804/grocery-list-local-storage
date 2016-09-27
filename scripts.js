@@ -18,7 +18,11 @@ $(document).ready(function () {
   }
 
   function renderIdeas() {
-    
+    ideas.forEach(function (idea) {
+      alert(`
+        <section>${idea.title}</section>
+        `);
+    }); // end of forEach
   }
 
   submitButton.on("click", function (event) {
