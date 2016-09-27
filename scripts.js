@@ -21,9 +21,10 @@ $(document).ready(function () {
   function renderIdeas() {
     ideas.forEach(function (idea) {
       var toHTML = (`
-        <section>
+        <section class="indiv-idea-box" id=${idea.id}>
           <h2>${idea.title}</h2>
           <h4>${idea.body}</h4>
+          <p class="idea-quality">${idea.quality}</p>
         </section>
         `);
         // ideasMasterContainer.html(toHTML);
