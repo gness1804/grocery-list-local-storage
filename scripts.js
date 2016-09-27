@@ -23,8 +23,8 @@ $(document).ready(function () {
       var toHTML = (`
         <section>${idea.title}</section>
         `);
-        ideasMasterContainer.html(toHTML);
-
+        // ideasMasterContainer.html(toHTML);
+        ideasMasterContainer.prepend(toHTML);
     }); // end of forEach
   }
 
@@ -34,6 +34,7 @@ $(document).ready(function () {
     var newBody = bodyInput.val();
     createNewIdea(newTitle, newBody);
     renderIdeas();
+    console.log(ideas);
   });
 
 }); //end of jQuery body

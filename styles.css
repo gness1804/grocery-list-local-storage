@@ -5,4 +5,5 @@
 #ideas-master-container {
   border: 1px solid black;
   margin: 50px auto;
+  min-height: 400px;
 }
