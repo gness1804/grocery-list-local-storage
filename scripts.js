@@ -15,13 +15,18 @@ $(document).ready(function () {
 
     ideas: [],
 
+    add: function (newTitle, newBody) {
+      this.ideas.push(new Idea(newTitle, newBody));
+      this.store();
+    } // end of add
+
 
   }; // end of ideaManager
 
   submitButton.on("click", function () {
     var newTitle = titleInput.val();
     var newBody = bodyInput.val();
-    alert(newBody);
+    ideaManager.add(newTitle, newBody);
   });
 
 }); //end of jQuery body
