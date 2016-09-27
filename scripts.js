@@ -3,6 +3,8 @@ $(document).ready(function () {
   var bodyInput = $("#body-input");
   var submitButton = $("#submit-button");
 
+  var ideas = [];
+
 
   function Idea(title, body, id, quality) {
     this.title = title;
@@ -11,13 +13,13 @@ $(document).ready(function () {
     this.quality = quality || "swill";
   }
 
-  // Idea.prototype.create = function () {
-  //   console.log(idea);
-  // };
+  Idea.prototype.add = function () {
+    console.log(this.title);
+  };
 
   function createIdea(newTitle, newBody) {
     var idea = new Idea(newTitle, newBody);
-    console.log(idea);
+    idea.add();
   }
 
   submitButton.on("click", function (event) {
@@ -25,7 +27,6 @@ $(document).ready(function () {
     var newTitle = titleInput.val();
     var newBody = bodyInput.val();
     createIdea(newTitle, newBody);
-    // var idea = new Idea(newTitle, newBody);
 
   });
 
