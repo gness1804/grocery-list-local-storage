@@ -21,7 +21,10 @@ $(document).ready(function () {
   function renderIdeas() {
     ideas.forEach(function (idea) {
       var toHTML = (`
-        <section>${idea.title}</section>
+        <section>
+          <h2>${idea.title}</h2>
+          <h4>${idea.body}</h4>
+        </section>
         `);
         // ideasMasterContainer.html(toHTML);
         ideasMasterContainer.prepend(toHTML);
