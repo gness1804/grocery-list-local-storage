@@ -11,16 +11,22 @@ $(document).ready(function () {
     this.quality = quality || "swill";
   }
 
-  Idea.prototype.create = function () {
+  // Idea.prototype.create = function () {
+  //   console.log(idea);
+  // };
 
-  };
+  function createIdea(newTitle, newBody) {
+    var idea = new Idea(newTitle, newBody);
+    console.log(idea);
+  }
 
   submitButton.on("click", function (event) {
     event.preventDefault();
     var newTitle = titleInput.val();
     var newBody = bodyInput.val();
-    var idea = new Idea(newTitle, newBody);
-    console.log(idea);
+    createIdea(newTitle, newBody);
+    // var idea = new Idea(newTitle, newBody);
+
   });
 
 }); //end of jQuery body
