@@ -14,7 +14,11 @@ $(document).ready(function () {
 
   function createNewIdea(newTitle, newBody) {
     ideas.push(new Idea(newTitle, newBody));
-    console.log(ideas);
+    localStorage.setItem("ideas", JSON.stringify(ideas));
+  }
+
+  function renderIdeas() {
+    
   }
 
   submitButton.on("click", function (event) {
@@ -22,7 +26,7 @@ $(document).ready(function () {
     var newTitle = titleInput.val();
     var newBody = bodyInput.val();
     createNewIdea(newTitle, newBody);
-
+    renderIdeas();
   });
 
 }); //end of jQuery body
