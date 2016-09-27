@@ -57,11 +57,13 @@ $(document).ready(function () {
 
   submitButton.on("click", function () {
     addUserInputToProgram();
+    clearInputFields();
   });
 
   $("input").on("keyup", function (key) {
     if (key.which === 13) {
       addUserInputToProgram();
+      clearInputFields();
     }
   });
 
@@ -69,6 +71,11 @@ $(document).ready(function () {
     var newTitle = titleInput.val();
     var newBody = bodyInput.val();
     ideaManager.add(newTitle, newBody);
+  }
+
+  function clearInputFields() {
+    titleInput.val("");
+    bodyInput.val("");
   }
 
   ideaManager.retrieve();
