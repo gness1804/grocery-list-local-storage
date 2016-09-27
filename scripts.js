@@ -11,6 +11,14 @@ $(document).ready(function () {
     this.quality = quality || "swill";
   }
 
+  Idea.prototype.toHTML = function () {
+    return $(`
+      <section id=${this.id}>
+        <h3>${this.title}</h3>
+      </section>
+      `);
+  };
+
   var ideaManager = {
     //this === ideaManager
 
@@ -23,7 +31,10 @@ $(document).ready(function () {
 
     render: function () {
       ideasMasterContainer.html("");
-    },
+      this.ideas.forEach(function (idea) {
+        ideasMasterContainer.prepend(idea.toHTML());
+      }); // end of forEach
+    }, // end of render
 
     store: function () {
       localStorage.setItem("ideas", JSON.stringify(this.ideas));
