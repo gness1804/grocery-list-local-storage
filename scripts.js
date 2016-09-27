@@ -12,14 +12,23 @@ $(document).ready(function () {
   }
 
   var ideaManager = {
+    //this === ideaManager
 
     ideas: [],
 
     add: function (newTitle, newBody) {
       this.ideas.push(new Idea(newTitle, newBody));
       this.store();
-    } // end of add
+    }, // end of add
 
+    render: function () {
+      ideasMasterContainer.html("");
+    },
+
+    store: function () {
+      localStorage.setItem("ideas", JSON.stringify(this.ideas));
+      this.render();
+    }, // end of store
 
   }; // end of ideaManager
 
