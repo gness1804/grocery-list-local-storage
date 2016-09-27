@@ -12,8 +12,9 @@ $(document).ready(function () {
     this.quality = quality || "swill";
   }
 
-  function createNewIdea() {
-    
+  function createNewIdea(newTitle, newBody) {
+    ideas.push(new Idea(newTitle, newBody));
+    console.log(ideas);
   }
 
   submitButton.on("click", function (event) {
