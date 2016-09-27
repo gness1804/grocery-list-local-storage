@@ -12,23 +12,15 @@ $(document).ready(function () {
     this.quality = quality || "swill";
   }
 
-  Idea.prototype.add = function () {
-    ideas.push(this);
-    var stringifiedIdeas = JSON.stringify(ideas);
-    localStorage.setItem("ideas", stringifiedIdeas);
-
-  };
-
-  function createIdea(newTitle, newBody) {
-    var idea = new Idea(newTitle, newBody);
-    idea.add();
+  function createNewIdea() {
+    
   }
 
   submitButton.on("click", function (event) {
     event.preventDefault();
     var newTitle = titleInput.val();
     var newBody = bodyInput.val();
-    createIdea(newTitle, newBody);
+    createNewIdea(newTitle, newBody);
 
   });
 
