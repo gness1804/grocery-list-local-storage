@@ -18,6 +18,7 @@ $(document).ready(function () {
         <h4>Body: ${this.body}</h4>
         <p>Id: ${this.id}</p>
         <p>Quality: ${this.quality}</p>
+        <button class="button-to-delete-idea">Delete Idea</button>
       </section>
       `);
   };
