@@ -14,8 +14,9 @@ $(document).ready(function () {
 
   Idea.prototype.add = function () {
     ideas.push(this);
-    var storedIdeas = JSON.stringify(ideas);
-    console.log(storedIdeas);
+    var stringifiedIdeas = JSON.stringify(ideas);
+    localStorage.setItem("ideas", stringifiedIdeas);
+
   };
 
   function createIdea(newTitle, newBody) {
