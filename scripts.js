@@ -13,7 +13,7 @@ $(document).ready(function () {
 
   Idea.prototype.toHTML = function () {
     return $(`
-      <section id=${this.id}>
+      <section id=${this.id} class="each-idea-container">
         <h3>Title: ${this.title}</h3>
         <h4>Body: ${this.body}</h4>
         <p>Id: ${this.id}</p>
