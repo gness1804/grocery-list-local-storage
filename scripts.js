@@ -5,7 +5,6 @@ $(document).ready(function () {
 
   var ideas = [];
 
-
   function Idea(title, body, id, quality) {
     this.title = title;
     this.body = body;
@@ -14,7 +13,9 @@ $(document).ready(function () {
   }
 
   Idea.prototype.add = function () {
-    console.log(this.title);
+    ideas.push(this);
+    var storedIdeas = JSON.stringify(ideas);
+    console.log(storedIdeas);
   };
 
   function createIdea(newTitle, newBody) {
