@@ -2,6 +2,7 @@ $(document).ready(function () {
   var titleInput = $("#title-input");
   var bodyInput = $("#body-input");
   var submitButton = $("#submit-button");
+  var ideasMasterContainer = $("#ideas-master-container");
 
   var ideas = [];
 
@@ -19,9 +20,11 @@ $(document).ready(function () {
 
   function renderIdeas() {
     ideas.forEach(function (idea) {
-      alert(`
+      var toHTML = (`
         <section>${idea.title}</section>
         `);
+        ideasMasterContainer.html(toHTML);
+
     }); // end of forEach
   }
 
