@@ -1,3 +1,8 @@
 #title-input, #body-input {
   border: 1px solid black;
 }
+
+#ideas-master-container {
+  border: 1px solid black;
+  margin: 50px auto;
+}
