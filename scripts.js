@@ -56,10 +56,20 @@ $(document).ready(function () {
   }; // end of ideaManager
 
   submitButton.on("click", function () {
+    addUserInputToProgram();
+  });
+
+  $("input").on("keyup", function (key) {
+    if (key.which === 13) {
+      addUserInputToProgram();
+    }
+  });
+
+  function addUserInputToProgram() {
     var newTitle = titleInput.val();
     var newBody = bodyInput.val();
     ideaManager.add(newTitle, newBody);
-  });
+  }
 
   ideaManager.retrieve();
   ideaManager.render();
