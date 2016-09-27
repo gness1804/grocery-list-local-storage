@@ -1,3 +1,7 @@
+#input-items-container {
+  text-align: center;
+}
+
 #title-input, #body-input {
   border: 1px solid black;
 }
