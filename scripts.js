@@ -35,6 +35,12 @@ $(document).ready(function () {
       this.store();
     }, // end of add
 
+    checkIfClear: function () {
+      if (this.ideas.length === 0) {
+        console.log("hi");
+      }
+    },
+
     downvote: function (id) {
       var targetId = parseInt(id);
       var found = this.ideas.find(function (idea) {
@@ -166,5 +172,6 @@ $(document).ready(function () {
 
   ideaManager.retrieve();
   ideaManager.render();
+  ideaManager.checkIfClear();
 
 }); //end of jQuery body
