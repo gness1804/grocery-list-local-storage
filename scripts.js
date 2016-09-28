@@ -15,8 +15,8 @@ $(document).ready(function () {
   Idea.prototype.toHTML = function () {
     return $(`
       <section id=${this.id} class="each-idea-container">
-        <h3>Title: ${this.title}</h3>
-        <h4>Body: ${this.body}</h4>
+        <h3 contenteditable="true">Title: ${this.title}</h3>
+        <h4 contenteditable="true">Body: ${this.body}</h4>
         <p>Id: ${this.id}</p>
         <p>Quality: ${this.quality}</p>
         <button class="button-to-delete-idea">Delete Idea</button>
