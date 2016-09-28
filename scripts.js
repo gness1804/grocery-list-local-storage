@@ -15,8 +15,8 @@ $(document).ready(function () {
   Idea.prototype.toHTML = function () {
     return $(`
       <section id=${this.id} class="each-idea-container">
-        <h3 contenteditable="true" class="editable-title">Title: ${this.title}</h3>
-        <h4 contenteditable="true" class="editable-body">Body: ${this.body}</h4>
+        <h3 contenteditable="true" class="editable-title">${this.title}</h3>
+        <h4 contenteditable="true" class="editable-body">${this.body}</h4>
         <p>Id: ${this.id}</p>
         <p>Quality: ${this.quality}</p>
         <button class="button-to-delete-idea">Delete Idea</button>
@@ -50,7 +50,7 @@ $(document).ready(function () {
       var found = this.ideas.find(function (idea) {
         return idea.id === targetId;
       });
-      console.log(found);
+      found.editTitleOfIdea(newTitle);
     },
 
     remove: function (id) {
@@ -115,7 +115,8 @@ $(document).ready(function () {
   };
 
   Idea.prototype.editTitleOfIdea = function (newTitle) {
-    console.log(titleText);
+    this.title = newTitle;
+    ideaManager.store();
   };
 
   submitButton.on("click", function () {
