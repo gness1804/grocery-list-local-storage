@@ -70,7 +70,8 @@ $(document).ready(function () {
   });
 
   ideasMasterContainer.on("click", ".button-to-delete-idea", function () {
-    alert('hi');
+    var id = $(this).closest(".each-idea-container").attr("id");
+    
   } );
 
   function addUserInputToProgram() {
