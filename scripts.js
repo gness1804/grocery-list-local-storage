@@ -36,9 +36,10 @@ $(document).ready(function () {
 
     remove: function (id) {
       var targetId = parseInt(id);
-      this.ideas.forEach(function (idea) {
-        console.log(idea.id);
+      var example = this.ideas.filter(function (idea) {
+        return idea.id !== targetId;
       });
+      console.log(example);
     }, // end of remove
 
     render: function () {
