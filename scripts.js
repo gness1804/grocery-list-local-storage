@@ -124,7 +124,7 @@ $(document).ready(function () {
   ideasMasterContainer.on("keyup", ".editable-title, .editable-body", function (key) {
     if (key.which === 13) {
       var titleText = $(this).closest("h3").text();
-      console.log(titleText);
+      ideaManager.editTitle(titleText);
     }
   });
 
