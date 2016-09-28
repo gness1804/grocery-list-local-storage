@@ -44,6 +44,11 @@ $(document).ready(function () {
       found.downvoteIdea();
     }, // end of downvote
 
+    editTitle: function (id) {
+      var targetId = parseInt(id);
+      
+    },
+
     remove: function (id) {
       var targetId = parseInt(id);
       this.ideas = this.ideas.filter(function (idea) {
@@ -117,8 +122,9 @@ $(document).ready(function () {
     }
   });
 
-  ideasMasterContainer.on("keyup", ".editable-title", function () {
-    
+  ideasMasterContainer.on("keyup", ".editable-title, .editable-body", function () {
+    var id = $(this).closest(".each-idea-container").attr("id");
+    ideaManager.editTitle(id);
   });
 
   ideasMasterContainer.on("click", ".button-to-delete-idea", function () {
