@@ -3,7 +3,6 @@ $(document).ready(function () {
   var bodyInput = $("#body-input");
   var submitButton = $("#submit-button");
   var ideasMasterContainer = $("#ideas-master-container");
-  // var buttonToDeleteIdea = $(".button-to-delete-idea");
 
   function Idea(title, body, id, quality) {
     this.title = title;
@@ -15,8 +14,8 @@ $(document).ready(function () {
   Idea.prototype.toHTML = function () {
     return $(`
       <section id=${this.id} class="each-idea-container">
-        <h3>Title: ${this.title}</h3>
-        <h4>Body: ${this.body}</h4>
+        <h3 contenteditable="true" class="editable-title">${this.title}</h3>
+        <h4 contenteditable="true" class="editable-body">${this.body}</h4>
         <p>Id: ${this.id}</p>
         <p>Quality: ${this.quality}</p>
         <button class="button-to-delete-idea">Delete Idea</button>
@@ -43,6 +42,15 @@ $(document).ready(function () {
       });
       found.downvoteIdea();
     }, // end of downvote
+
+    editTitle: function (titleText, id) {
+      var newTitle = titleText;
+      var targetId = parseInt(id);
+      var found = this.ideas.find(function (idea) {
+        return idea.id === targetId;
+      });
+      found.editTitleOfIdea(newTitle);
+    },
 
     remove: function (id) {
       var targetId = parseInt(id);
@@ -105,6 +113,11 @@ $(document).ready(function () {
     ideaManager.store();
   };
 
+  Idea.prototype.editTitleOfIdea = function (newTitle) {
+    this.title = newTitle;
+    ideaManager.store();
+  };
+
   submitButton.on("click", function () {
     addUserInputToProgram();
     clearInputFields();
@@ -114,6 +127,14 @@ $(document).ready(function () {
     if (key.which === 13) {
       addUserInputToProgram();
       clearInputFields();
+    }
+  });
+
+  ideasMasterContainer.on("keyup", ".editable-title", function (key) {
+    if (key.which === 13) {
+      var titleText = $(this).closest("h3").text();
+      var id = $(this).closest(".each-idea-container").attr("id");
+      ideaManager.editTitle(titleText, id);
     }
   });
 
