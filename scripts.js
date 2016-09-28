@@ -65,6 +65,7 @@ $(document).ready(function () {
         return idea.id !== targetId;
       });
       this.store();
+      this.checkIfClear();
     }, // end of remove
 
     render: function () {
