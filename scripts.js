@@ -35,9 +35,11 @@ $(document).ready(function () {
     }, // end of add
 
     remove: function (id) {
-      var newId = parseInt(id);
-      console.log(newId);
-    },
+      var targetId = parseInt(id);
+      this.ideas.forEach(function (idea) {
+        console.log(idea.id);
+      });
+    }, // end of remove
 
     render: function () {
       ideasMasterContainer.html("");
