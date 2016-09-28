@@ -38,7 +38,7 @@ $(document).ready(function () {
 
     checkIfClear: function () {
       if (this.ideas.length === 0) {
-        console.log(noIdeasMessage.innerHTML);
+        noIdeasMessage.innerText = "Testing";
       }
     }, //end of checkIfClear
 
