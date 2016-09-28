@@ -34,6 +34,14 @@ $(document).ready(function () {
       this.store();
     }, // end of add
 
+    remove: function (id) {
+      var targetId = parseInt(id);
+      this.ideas = this.ideas.filter(function (idea) {
+        return idea.id !== targetId;
+      });
+      this.store();
+    }, // end of remove
+
     render: function () {
       ideasMasterContainer.html("");
       this.ideas.forEach(function (idea) {
@@ -68,6 +76,11 @@ $(document).ready(function () {
       clearInputFields();
     }
   });
+
+  ideasMasterContainer.on("click", ".button-to-delete-idea", function () {
+    var id = $(this).closest(".each-idea-container").attr("id");
+    ideaManager.remove(id);
+  } );
 
   function addUserInputToProgram() {
     var newTitle = titleInput.val();
