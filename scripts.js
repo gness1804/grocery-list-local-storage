@@ -131,7 +131,7 @@ $(document).ready(function () {
     }
   });
 
-  ideasMasterContainer.on("keyup", ".editable-title, .editable-body", function (key) {
+  ideasMasterContainer.on("keyup", ".editable-title", function (key) {
     if (key.which === 13) {
       var titleText = $(this).closest("h3").text();
       var id = $(this).closest(".each-idea-container").attr("id");
