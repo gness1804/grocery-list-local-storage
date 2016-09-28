@@ -6,6 +6,12 @@
   border: 1px solid black;
 }
 
+#no-ideas-message {
+  font-size: 24px;
+  margin: 30px auto;
+  text-align: center;
+}
+
 #ideas-master-container {
   border: 1px solid black;
   margin: 50px auto;

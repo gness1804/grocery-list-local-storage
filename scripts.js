@@ -3,6 +3,7 @@ $(document).ready(function () {
   var bodyInput = $("#body-input");
   var submitButton = $("#submit-button");
   var ideasMasterContainer = $("#ideas-master-container");
+  var noIdeasMessage = document.getElementById("no-ideas-message");
 
   function Idea(title, body, id, quality) {
     this.title = title;
@@ -33,7 +34,17 @@ $(document).ready(function () {
     add: function (newTitle, newBody) {
       this.ideas.push(new Idea(newTitle, newBody));
       this.store();
+      noIdeasMessage.innerText = "You have some good ideas! Why not add some more?";
     }, // end of add
+
+    checkIfClear: function () {
+      if (this.ideas.length === 0) {
+        noIdeasMessage.innerText = "There are no ideas here! We want to see your bright ideas!";
+      }
+      else {
+        noIdeasMessage.innerText = "You have some good ideas! Why not add some more?";
+      }
+    }, //end of checkIfClear
 
     downvote: function (id) {
       var targetId = parseInt(id);
@@ -58,6 +69,7 @@ $(document).ready(function () {
         return idea.id !== targetId;
       });
       this.store();
+      this.checkIfClear();
     }, // end of remove
 
     render: function () {
@@ -166,5 +178,6 @@ $(document).ready(function () {
 
   ideaManager.retrieve();
   ideaManager.render();
+  ideaManager.checkIfClear();
 
 }); //end of jQuery body
