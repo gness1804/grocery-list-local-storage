@@ -44,14 +44,6 @@ $(document).ready(function () {
       found.downvoteIdea();
     }, // end of downvote
 
-    editTitle: function (id) {
-      var targetId = parseInt(id);
-      var found = this.ideas.find(function (idea) {
-        return idea.id === targetId;
-      });
-      found.editTitleOfIdea();
-    },
-
     remove: function (id) {
       var targetId = parseInt(id);
       this.ideas = this.ideas.filter(function (idea) {
@@ -114,8 +106,7 @@ $(document).ready(function () {
   };
 
   Idea.prototype.editTitleOfIdea = function () {
-    var title = this.title;
-    console.log(title);
+    console.log($(this).closest("h3"));
   };
 
   submitButton.on("click", function () {
@@ -132,8 +123,7 @@ $(document).ready(function () {
 
   ideasMasterContainer.on("keyup", ".editable-title, .editable-body", function (key) {
     if (key.which === 13) {
-      var id = $(this).closest(".each-idea-container").attr("id");
-      ideaManager.editTitle(id);
+      console.log("dogs");
     }
   });
 
