@@ -75,7 +75,11 @@ $(document).ready(function () {
   }; // end of ideaManager
 
   Idea.prototype.upvoteIdea = function () {
-    console.log(this.id);
+    var quality = this.quality;
+    if (quality === "swill") {
+      this.quality = "plausible";
+    }
+    ideaManager.store();
   };
 
   submitButton.on("click", function () {
