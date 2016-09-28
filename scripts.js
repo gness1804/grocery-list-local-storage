@@ -69,10 +69,14 @@ $(document).ready(function () {
       var found = this.ideas.find(function (idea) {
         return idea.id === targetId;
       });
-      console.log(found);
+      found.upvoteIdea();
     }, // end of upvote
 
   }; // end of ideaManager
+
+  Idea.prototype.upvoteIdea = function () {
+    console.log(this.id);
+  };
 
   submitButton.on("click", function () {
     addUserInputToProgram();
