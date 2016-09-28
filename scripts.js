@@ -20,6 +20,7 @@ $(document).ready(function () {
         <p>Id: ${this.id}</p>
         <p>Quality: ${this.quality}</p>
         <button class="button-to-delete-idea">Delete Idea</button>
+        <button class="upvote">Upvote</button>
       </section>
       `);
   };
@@ -63,6 +64,11 @@ $(document).ready(function () {
       this.render();
     }, // end of store
 
+    upvote: function (id) {
+      var targetId = parseInt(id);
+      
+    },
+
   }; // end of ideaManager
 
   submitButton.on("click", function () {
@@ -80,6 +86,11 @@ $(document).ready(function () {
   ideasMasterContainer.on("click", ".button-to-delete-idea", function () {
     var id = $(this).closest(".each-idea-container").attr("id");
     ideaManager.remove(id);
+  } );
+
+  ideasMasterContainer.on("click", ".upvote", function () {
+    var id = $(this).closest(".each-idea-container").attr("id");
+    ideaManager.upvote(id);
   } );
 
   function addUserInputToProgram() {
