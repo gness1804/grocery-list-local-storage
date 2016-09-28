@@ -21,6 +21,7 @@ $(document).ready(function () {
         <p>Quality: ${this.quality}</p>
         <button class="button-to-delete-idea">Delete Idea</button>
         <button class="upvote">Upvote</button>
+        <button class="downvote">Downvote</button>
       </section>
       `);
   };
@@ -34,6 +35,14 @@ $(document).ready(function () {
       this.ideas.push(new Idea(newTitle, newBody));
       this.store();
     }, // end of add
+
+    downvote: function (id) {
+      var targetId = parseInt(id);
+      var found = this.ideas.find(function (idea) {
+        return idea.id === targetId;
+      });
+      found.downvoteIdea();
+    }, // end of downvote
 
     remove: function (id) {
       var targetId = parseInt(id);
@@ -85,6 +94,17 @@ $(document).ready(function () {
     ideaManager.store();
   };
 
+  Idea.prototype.downvoteIdea = function () {
+    var quality = this.quality;
+    if (quality === "genius") {
+      this.quality = "plausible";
+    }
+    else if (quality === "plausible") {
+      this.quality = "swill";
+    }
+    ideaManager.store();
+  };
+
   submitButton.on("click", function () {
     addUserInputToProgram();
     clearInputFields();
@@ -105,6 +125,11 @@ $(document).ready(function () {
   ideasMasterContainer.on("click", ".upvote", function () {
     var id = $(this).closest(".each-idea-container").attr("id");
     ideaManager.upvote(id);
+  } );
+
+  ideasMasterContainer.on("click", ".downvote", function () {
+    var id = $(this).closest(".each-idea-container").attr("id");
+    ideaManager.downvote(id);
   } );
 
   function addUserInputToProgram() {
