@@ -79,6 +79,9 @@ $(document).ready(function () {
     if (quality === "swill") {
       this.quality = "plausible";
     }
+    else if (quality === "plausible") {
+      this.quality = "genius";
+    }
     ideaManager.store();
   };
 
