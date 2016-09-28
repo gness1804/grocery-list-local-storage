@@ -34,6 +34,7 @@ $(document).ready(function () {
     add: function (newTitle, newBody) {
       this.ideas.push(new Idea(newTitle, newBody));
       this.store();
+      noIdeasMessage.innerText = "";
     }, // end of add
 
     checkIfClear: function () {
