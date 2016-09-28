@@ -69,6 +69,10 @@ $(document).ready(function () {
     }
   });
 
+  ideasMasterContainer.on("click", ".button-to-delete-idea", function () {
+    alert('hi');
+  } );
+
   function addUserInputToProgram() {
     var newTitle = titleInput.val();
     var newBody = bodyInput.val();
