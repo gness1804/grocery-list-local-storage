@@ -123,7 +123,8 @@ $(document).ready(function () {
 
   ideasMasterContainer.on("keyup", ".editable-title, .editable-body", function (key) {
     if (key.which === 13) {
-      console.log("dogs");
+      var titleText = $(this).closest("h3").text();
+      console.log(titleText);
     }
   });
 
