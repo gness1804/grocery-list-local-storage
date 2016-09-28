@@ -3,6 +3,7 @@ $(document).ready(function () {
   var bodyInput = $("#body-input");
   var submitButton = $("#submit-button");
   var ideasMasterContainer = $("#ideas-master-container");
+  // var buttonToDeleteIdea = $(".button-to-delete-idea");
 
   function Idea(title, body, id, quality) {
     this.title = title;
