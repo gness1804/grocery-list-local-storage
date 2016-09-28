@@ -34,6 +34,11 @@ $(document).ready(function () {
       this.store();
     }, // end of add
 
+    remove: function (id) {
+      var newId = parseInt(id);
+      console.log(newId);
+    },
+
     render: function () {
       ideasMasterContainer.html("");
       this.ideas.forEach(function (idea) {
@@ -71,7 +76,7 @@ $(document).ready(function () {
 
   ideasMasterContainer.on("click", ".button-to-delete-idea", function () {
     var id = $(this).closest(".each-idea-container").attr("id");
-    
+    ideaManager.remove(id);
   } );
 
   function addUserInputToProgram() {
