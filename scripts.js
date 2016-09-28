@@ -66,8 +66,11 @@ $(document).ready(function () {
 
     upvote: function (id) {
       var targetId = parseInt(id);
-      
-    },
+      var found = this.ideas.find(function (idea) {
+        return idea.id === targetId;
+      });
+      console.log(found);
+    }, // end of upvote
 
   }; // end of ideaManager
 
