@@ -34,12 +34,15 @@ $(document).ready(function () {
     add: function (newTitle, newBody) {
       this.ideas.push(new Idea(newTitle, newBody));
       this.store();
-      noIdeasMessage.innerText = "";
+      noIdeasMessage.innerText = "You have some good ideas! Why not add some more?";
     }, // end of add
 
     checkIfClear: function () {
       if (this.ideas.length === 0) {
         noIdeasMessage.innerText = "There are no ideas here! We want to see your bright ideas!";
+      }
+      else {
+        noIdeasMessage.innerText = "You have some good ideas! Why not add some more?";
       }
     }, //end of checkIfClear
 
