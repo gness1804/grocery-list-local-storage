@@ -46,7 +46,10 @@ $(document).ready(function () {
 
     editTitle: function (id) {
       var targetId = parseInt(id);
-      
+      var found = this.ideas.find(function (idea) {
+        return idea.id === targetId;
+      });
+      found.editTitleOfIdea();
     },
 
     remove: function (id) {
@@ -110,6 +113,11 @@ $(document).ready(function () {
     ideaManager.store();
   };
 
+  Idea.prototype.editTitleOfIdea = function () {
+    var title = this.title;
+    console.log(title);
+  };
+
   submitButton.on("click", function () {
     addUserInputToProgram();
     clearInputFields();
@@ -122,9 +130,11 @@ $(document).ready(function () {
     }
   });
 
-  ideasMasterContainer.on("keyup", ".editable-title, .editable-body", function () {
-    var id = $(this).closest(".each-idea-container").attr("id");
-    ideaManager.editTitle(id);
+  ideasMasterContainer.on("keyup", ".editable-title, .editable-body", function (key) {
+    if (key.which === 13) {
+      var id = $(this).closest(".each-idea-container").attr("id");
+      ideaManager.editTitle(id);
+    }
   });
 
   ideasMasterContainer.on("click", ".button-to-delete-idea", function () {
