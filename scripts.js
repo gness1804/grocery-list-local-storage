@@ -44,6 +44,12 @@ $(document).ready(function () {
       found.downvoteIdea();
     }, // end of downvote
 
+    editTitle: function (titleText, id) {
+      var newTitle = titleText;
+      var targetId = id;
+      
+    },
+
     remove: function (id) {
       var targetId = parseInt(id);
       this.ideas = this.ideas.filter(function (idea) {
@@ -105,9 +111,9 @@ $(document).ready(function () {
     ideaManager.store();
   };
 
-  Idea.prototype.editTitleOfIdea = function () {
-    console.log($(this).closest("h3"));
-  };
+  // Idea.prototype.editTitleOfIdea = function () {
+  //   console.log($(this).closest("h3"));
+  // };
 
   submitButton.on("click", function () {
     addUserInputToProgram();
@@ -124,7 +130,8 @@ $(document).ready(function () {
   ideasMasterContainer.on("keyup", ".editable-title, .editable-body", function (key) {
     if (key.which === 13) {
       var titleText = $(this).closest("h3").text();
-      ideaManager.editTitle(titleText);
+      var id = $(this).closest(".each-idea-container").attr("id");
+      ideaManager.editTitle(titleText, id);
     }
   });
 
