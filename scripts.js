@@ -3,6 +3,7 @@ $(document).ready(function () {
   var bodyInput = $("#body-input");
   var submitButton = $("#submit-button");
   var ideasMasterContainer = $("#ideas-master-container");
+  var noIdeasMessage = document.getElementById("no-ideas-message");
 
   function Idea(title, body, id, quality) {
     this.title = title;
@@ -37,9 +38,9 @@ $(document).ready(function () {
 
     checkIfClear: function () {
       if (this.ideas.length === 0) {
-        console.log("hi");
+        console.log(noIdeasMessage.innerHTML);
       }
-    },
+    }, //end of checkIfClear
 
     downvote: function (id) {
       var targetId = parseInt(id);
