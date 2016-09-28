@@ -46,8 +46,11 @@ $(document).ready(function () {
 
     editTitle: function (titleText, id) {
       var newTitle = titleText;
-      var targetId = id;
-      
+      var targetId = parseInt(id);
+      var found = this.ideas.find(function (idea) {
+        return idea.id === targetId;
+      });
+      console.log(found);
     },
 
     remove: function (id) {
@@ -111,9 +114,9 @@ $(document).ready(function () {
     ideaManager.store();
   };
 
-  // Idea.prototype.editTitleOfIdea = function () {
-  //   console.log($(this).closest("h3"));
-  // };
+  Idea.prototype.editTitleOfIdea = function (newTitle) {
+    console.log(titleText);
+  };
 
   submitButton.on("click", function () {
     addUserInputToProgram();
