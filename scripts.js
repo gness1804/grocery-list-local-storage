@@ -46,21 +46,12 @@ $(document).ready(function () {
       }
     }, //end of checkIfClear
 
-    downvote: function (id) {
+    findID: function (id) {
       var targetId = parseInt(id);
       var found = this.ideas.find(function (idea) {
         return idea.id === targetId;
       });
-      found.downvoteIdea();
-    }, // end of downvote
-
-    editTitle: function (titleText, id) {
-      var newTitle = titleText;
-      var targetId = parseInt(id);
-      var found = this.ideas.find(function (idea) {
-        return idea.id === targetId;
-      });
-      found.editTitleOfIdea(newTitle);
+      return found;
     },
 
     remove: function (id) {
@@ -93,14 +84,6 @@ $(document).ready(function () {
       this.render();
     }, // end of store
 
-    upvote: function (id) {
-      var targetId = parseInt(id);
-      var found = this.ideas.find(function (idea) {
-        return idea.id === targetId;
-      });
-      found.upvoteIdea();
-    }, // end of upvote
-
   }; // end of ideaManager
 
   Idea.prototype.upvoteIdea = function () {
@@ -125,8 +108,8 @@ $(document).ready(function () {
     ideaManager.store();
   };
 
-  Idea.prototype.editTitleOfIdea = function (newTitle) {
-    this.title = newTitle;
+  Idea.prototype.editTitleOfIdea = function (titleText) {
+    this.title = titleText;
     ideaManager.store();
   };
 
@@ -146,7 +129,7 @@ $(document).ready(function () {
     if (key.which === 13) {
       var titleText = $(this).closest("h3").text();
       var id = $(this).closest(".each-idea-container").attr("id");
-      ideaManager.editTitle(titleText, id);
+      ideaManager.findID(id).editTitleOfIdea(titleText);
     }
   });
 
@@ -157,12 +140,12 @@ $(document).ready(function () {
 
   ideasMasterContainer.on("click", ".upvote", function () {
     var id = $(this).closest(".each-idea-container").attr("id");
-    ideaManager.upvote(id);
+    ideaManager.findID(id).upvoteIdea();
   } );
 
   ideasMasterContainer.on("click", ".downvote", function () {
     var id = $(this).closest(".each-idea-container").attr("id");
-    ideaManager.downvote(id);
+    ideaManager.findID(id).downvoteIdea();
   } );
 
   function addUserInputToProgram() {
