@@ -154,8 +154,7 @@ $(document).ready(function () {
 
   ideasMasterContainer.on("click", ".downvote", function () {
     var id = $(this).closest(".each-idea-container").attr("id");
-
-    console.log(ideaManager.findID(id));
+    ideaManager.findID(id).downvoteIdea();
   } );
 
   function addUserInputToProgram() {
