@@ -46,14 +46,14 @@ $(document).ready(function () {
       }
     }, //end of checkIfClear
 
-    editTitle: function (titleText, id) {
-      var newTitle = titleText;
-      var targetId = parseInt(id);
-      var found = this.ideas.find(function (idea) {
-        return idea.id === targetId;
-      });
-      found.editTitleOfIdea(newTitle);
-    },
+    // editTitle: function (titleText, id) {
+    //   var newTitle = titleText;
+    //   var targetId = parseInt(id);
+    //   var found = this.ideas.find(function (idea) {
+    //     return idea.id === targetId;
+    //   });
+    //   found.editTitleOfIdea(newTitle);
+    // },
 
     findID: function (id) {
       var targetId = parseInt(id);
@@ -117,8 +117,8 @@ $(document).ready(function () {
     ideaManager.store();
   };
 
-  Idea.prototype.editTitleOfIdea = function (newTitle) {
-    this.title = newTitle;
+  Idea.prototype.editTitleOfIdea = function (titleText) {
+    this.title = titleText;
     ideaManager.store();
   };
 
@@ -138,7 +138,8 @@ $(document).ready(function () {
     if (key.which === 13) {
       var titleText = $(this).closest("h3").text();
       var id = $(this).closest(".each-idea-container").attr("id");
-      ideaManager.editTitle(titleText, id);
+      // ideaManager.editTitle(titleText, id);
+      ideaManager.findID(id).editTitleOfIdea(titleText);
     }
   });
 
