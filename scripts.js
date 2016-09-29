@@ -149,7 +149,7 @@ $(document).ready(function () {
 
   ideasMasterContainer.on("click", ".upvote", function () {
     var id = $(this).closest(".each-idea-container").attr("id");
-    ideaManager.upvote(id);
+    ideaManager.findID(id).upvoteIdea();
   } );
 
   ideasMasterContainer.on("click", ".downvote", function () {
