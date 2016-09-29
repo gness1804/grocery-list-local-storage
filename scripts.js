@@ -60,7 +60,7 @@ $(document).ready(function () {
       var found = this.ideas.find(function (idea) {
         return idea.id === targetId;
       });
-      console.log(found);
+      return found;
     },
 
     remove: function (id) {
@@ -154,8 +154,8 @@ $(document).ready(function () {
 
   ideasMasterContainer.on("click", ".downvote", function () {
     var id = $(this).closest(".each-idea-container").attr("id");
-    ideaManager.findID(id);
-    // console.log(found);
+
+    console.log(ideaManager.findID(id));
   } );
 
   function addUserInputToProgram() {
