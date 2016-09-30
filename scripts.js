@@ -55,7 +55,7 @@ $(document).ready(function () {
     remove: function (id) {
       var targetId = parseInt(id);
       this.items = this.items.filter(function (item) {
-        return idea.id !== targetId;
+        return item.id !== targetId;
       });
       this.store();
       this.checkIfClear();
@@ -64,7 +64,7 @@ $(document).ready(function () {
     render: function () {
       itemsMasterContainer.html("");
       this.items.forEach(function (item) {
-        itemsMasterContainer.prepend(idea.toHTML());
+        itemsMasterContainer.prepend(item.toHTML());
       }); // end of forEach
     }, // end of render
 
@@ -72,7 +72,7 @@ $(document).ready(function () {
       var retrieveditems = JSON.parse(localStorage.getItem("items"));
       if (retrieveditems) {
         retrieveditems.forEach(function (item) {
-          itemManager.items.push(new Item(idea.title, idea.body, idea.id, idea.quality));
+          itemManager.items.push(new Item(item.item, item.aisle, item.id, item.note));
         });
       } // end of if statement
     }, // end of retrieve
@@ -84,32 +84,10 @@ $(document).ready(function () {
 
   }; // end of itemManager
 
-  Idea.prototype.upvoteIdea = function () {
-    var quality = this.quality;
-    if (quality === "swill") {
-      this.quality = "plausible";
-    }
-    else if (quality === "plausible") {
-      this.quality = "genius";
-    }
-    itemManager.store();
-  };
-
-  Idea.prototype.downvoteIdea = function () {
-    var quality = this.quality;
-    if (quality === "genius") {
-      this.quality = "plausible";
-    }
-    else if (quality === "plausible") {
-      this.quality = "swill";
-    }
-    itemManager.store();
-  };
-
-  Idea.prototype.editTitleOfIdea = function (titleText) {
-    this.title = titleText;
-    itemManager.store();
-  };
+  // Idea.prototype.editTitleOfIdea = function (titleText) {
+  //   this.title = titleText;
+  //   itemManager.store();
+  // };
 
   submitButton.on("click", function () {
     addUserInputToProgram();
@@ -134,16 +112,6 @@ $(document).ready(function () {
   itemsMasterContainer.on("click", ".delete-button", function () {
     var id = $(this).closest(".each-idea-container").attr("id");
     itemManager.remove(id);
-  } );
-
-  itemsMasterContainer.on("click", ".upvote", function () {
-    var id = $(this).closest(".each-idea-container").attr("id");
-    itemManager.findID(id).upvoteIdea();
-  } );
-
-  itemsMasterContainer.on("click", ".downvote", function () {
-    var id = $(this).closest(".each-idea-container").attr("id");
-    itemManager.findID(id).downvoteIdea();
   } );
 
   function addUserInputToProgram() {
