@@ -18,7 +18,7 @@ $(document).ready(function () {
         <h3 contenteditable="true" class="editable-item"> Item: ${this.item}</h3>
         <h4 contenteditable="true" class="editable-aisle"> Aisle: ${this.aisle}</h4>
         <p>Id: ${this.id}</p>
-        <textarea>${this.note}</textarea>
+        <input type="text" value="${this.note}" />
         <button class="save-note"> Save Note</button>
         <button class="delete-button"> Delete Item</button>
       </section>
@@ -50,7 +50,6 @@ $(document).ready(function () {
       var found = this.items.find(function (item) {
         return item.id === targetId;
       });
-      console.log(found);
       return found;
     },
 
@@ -117,8 +116,11 @@ $(document).ready(function () {
   } );
 
   itemsMasterContainer.on("click", ".save-note", function () {
-    var id = $(this).closest(".each-idea-container").attr("id");
-    itemManager.findID(id);
+
+    var note = $(this).closest("input").val();
+    console.log(note);
+    // var id = $(this).closest(".each-idea-container").attr("id");
+    // itemManager.findID(id).saveChangedNote(note);
   } );
 
   function addUserInputToProgram() {
