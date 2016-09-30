@@ -3,7 +3,7 @@ $(document).ready(function () {
   var aisleInput = $("#aisle-input");
   var submitButton = $("#submit-button");
   var itemsMasterContainer = $("#items-master-container");
-  var noIdeasMessage = document.getElementById("no-ideas-message");
+  var itemStatusMessage = document.getElementById("item-status-message");
 
   function Item(item, aisle, id, note) {
     this.item = item;
@@ -34,15 +34,15 @@ $(document).ready(function () {
     add: function (newTitle, newBody) {
       this.ideas.push(new Idea(newTitle, newBody));
       this.store();
-      noIdeasMessage.innerText = "You have some good ideas! Why not add some more?";
+      itemStatusMessage.innerText = "You have some good ideas! Why not add some more?";
     }, // end of add
 
     checkIfClear: function () {
       if (this.ideas.length === 0) {
-        noIdeasMessage.innerText = "There are no ideas here! We want to see your bright ideas!";
+        itemStatusMessage.innerText = "There are no ideas here! We want to see your bright ideas!";
       }
       else {
-        noIdeasMessage.innerText = "You have some good ideas! Why not add some more?";
+        itemStatusMessage.innerText = "You have some good ideas! Why not add some more?";
       }
     }, //end of checkIfClear
 
