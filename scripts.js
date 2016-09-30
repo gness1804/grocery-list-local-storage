@@ -2,14 +2,14 @@ $(document).ready(function () {
   var itemInput = $("#item-input");
   var aisleInput = $("#aisle-input");
   var submitButton = $("#submit-button");
-  var ideasMasterContainer = $("#ideas-master-container");
+  var itemsMasterContainer = $("#items-master-container");
   var noIdeasMessage = document.getElementById("no-ideas-message");
 
-  function Idea(title, body, id, quality) {
-    this.title = title;
-    this.body = body;
+  function Item(item, aisle, id, note) {
+    this.item = item;
+    this.aisle = aisle;
     this.id = id || Date.now();
-    this.quality = quality || "swill";
+    this.note = note;
   }
 
   Idea.prototype.toHTML = function () {
@@ -64,9 +64,9 @@ $(document).ready(function () {
     }, // end of remove
 
     render: function () {
-      ideasMasterContainer.html("");
+      itemsMasterContainer.html("");
       this.ideas.forEach(function (idea) {
-        ideasMasterContainer.prepend(idea.toHTML());
+        itemsMasterContainer.prepend(idea.toHTML());
       }); // end of forEach
     }, // end of render
 
@@ -125,7 +125,7 @@ $(document).ready(function () {
     }
   });
 
-  ideasMasterContainer.on("keyup", ".editable-title", function (key) {
+  itemsMasterContainer.on("keyup", ".editable-title", function (key) {
     if (key.which === 13) {
       var titleText = $(this).closest("h3").text();
       var id = $(this).closest(".each-idea-container").attr("id");
@@ -133,17 +133,17 @@ $(document).ready(function () {
     }
   });
 
-  ideasMasterContainer.on("click", ".button-to-delete-idea", function () {
+  itemsMasterContainer.on("click", ".button-to-delete-idea", function () {
     var id = $(this).closest(".each-idea-container").attr("id");
     ideaManager.remove(id);
   } );
 
-  ideasMasterContainer.on("click", ".upvote", function () {
+  itemsMasterContainer.on("click", ".upvote", function () {
     var id = $(this).closest(".each-idea-container").attr("id");
     ideaManager.findID(id).upvoteIdea();
   } );
 
-  ideasMasterContainer.on("click", ".downvote", function () {
+  itemsMasterContainer.on("click", ".downvote", function () {
     var id = $(this).closest(".each-idea-container").attr("id");
     ideaManager.findID(id).downvoteIdea();
   } );
