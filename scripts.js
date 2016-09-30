@@ -27,26 +27,26 @@ $(document).ready(function () {
   var itemManager = {
     //this === itemManager
 
-    ideas: [],
+    items: [],
 
     add: function (newTitle, newBody) {
-      this.ideas.push(new Idea(newTitle, newBody));
+      this.items.push(new Idea(newTitle, newBody));
       this.store();
-      itemStatusMessage.innerText = "You have some good ideas! Why not add some more?";
+      itemStatusMessage.innerText = "You have some good items! Why not add some more?";
     }, // end of add
 
     checkIfClear: function () {
-      if (this.ideas.length === 0) {
-        itemStatusMessage.innerText = "There are no ideas here! We want to see your bright ideas!";
+      if (this.items.length === 0) {
+        itemStatusMessage.innerText = "There are no items here! We want to see your bright items!";
       }
       else {
-        itemStatusMessage.innerText = "You have some good ideas! Why not add some more?";
+        itemStatusMessage.innerText = "You have some good items! Why not add some more?";
       }
     }, //end of checkIfClear
 
     findID: function (id) {
       var targetId = parseInt(id);
-      var found = this.ideas.find(function (idea) {
+      var found = this.items.find(function (idea) {
         return idea.id === targetId;
       });
       return found;
@@ -54,7 +54,7 @@ $(document).ready(function () {
 
     remove: function (id) {
       var targetId = parseInt(id);
-      this.ideas = this.ideas.filter(function (idea) {
+      this.items = this.items.filter(function (idea) {
         return idea.id !== targetId;
       });
       this.store();
@@ -63,22 +63,22 @@ $(document).ready(function () {
 
     render: function () {
       itemsMasterContainer.html("");
-      this.ideas.forEach(function (idea) {
+      this.items.forEach(function (idea) {
         itemsMasterContainer.prepend(idea.toHTML());
       }); // end of forEach
     }, // end of render
 
     retrieve: function () {
-      var retrievedIdeas = JSON.parse(localStorage.getItem("ideas"));
-      if (retrievedIdeas) {
-        retrievedIdeas.forEach(function (idea) {
-          itemManager.ideas.push(new Idea(idea.title, idea.body, idea.id, idea.quality));
+      var retrieveditems = JSON.parse(localStorage.getItem("items"));
+      if (retrieveditems) {
+        retrieveditems.forEach(function (idea) {
+          itemManager.items.push(new Idea(idea.title, idea.body, idea.id, idea.quality));
         });
       } // end of if statement
     }, // end of retrieve
 
     store: function () {
-      localStorage.setItem("ideas", JSON.stringify(this.ideas));
+      localStorage.setItem("items", JSON.stringify(this.items));
       this.render();
     }, // end of store
 
