@@ -48,8 +48,9 @@ $(document).ready(function () {
     findID: function (id) {
       var targetId = parseInt(id);
       var found = this.items.find(function (item) {
-        return idea.id === targetId;
+        return item.id === targetId;
       });
+      console.log(found);
       return found;
     },
 
@@ -113,6 +114,11 @@ $(document).ready(function () {
   itemsMasterContainer.on("click", ".delete-button", function () {
     var id = $(this).closest(".each-idea-container").attr("id");
     itemManager.remove(id);
+  } );
+
+  itemsMasterContainer.on("click", ".save-note", function () {
+    var id = $(this).closest(".each-idea-container").attr("id");
+    itemManager.findID(id);
   } );
 
   function addUserInputToProgram() {
