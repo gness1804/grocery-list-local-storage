@@ -111,16 +111,17 @@ $(document).ready(function () {
   });
 
   itemsMasterContainer.on("click", ".delete-button", function () {
-    var id = $(this).closest(".each-idea-container").attr("id");
-    itemManager.remove(id);
+    let that = this;
+    let confirmDelete = confirm("Are you sure you want to delete the item?");
+    if (confirmDelete) {
+      var id = $(that).closest(".each-idea-container").attr("id");
+      itemManager.remove(id);
+    }
   } );
 
   itemsMasterContainer.on("click", ".save-note", function () {
 
-    var note = $(this).closest("input").val();
-    console.log(note);
-    // var id = $(this).closest(".each-idea-container").attr("id");
-    // itemManager.findID(id).saveChangedNote(note);
+
   } );
 
   function addUserInputToProgram() {
