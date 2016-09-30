@@ -5,11 +5,12 @@ $(document).ready(function () {
   var itemsMasterContainer = $("#items-master-container");
   var itemStatusMessage = document.getElementById("item-status-message");
 
-  function Item(item, aisle, id, note) {
+  function Item(item, aisle, note, quantity, id) {
     this.item = item;
     this.aisle = aisle;
+    this.note = note || "No note added";
+    this.quantity = quantity || "No quantity noted";
     this.id = id || Date.now();
-    this.note = note || "Enter note here.";
   }
 
   Item.prototype.toHTML = function () {
