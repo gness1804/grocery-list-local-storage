@@ -29,8 +29,8 @@ $(document).ready(function () {
 
     items: [],
 
-    add: function (newTitle, newBody) {
-      this.items.push(new Idea(newTitle, newBody));
+    add: function (newItem, newAisle) {
+      this.items.push(new Item(newItem, newAisle));
       this.store();
       itemStatusMessage.innerText = "You have some good items! Why not add some more?";
     }, // end of add
@@ -46,7 +46,7 @@ $(document).ready(function () {
 
     findID: function (id) {
       var targetId = parseInt(id);
-      var found = this.items.find(function (idea) {
+      var found = this.items.find(function (item) {
         return idea.id === targetId;
       });
       return found;
@@ -54,7 +54,7 @@ $(document).ready(function () {
 
     remove: function (id) {
       var targetId = parseInt(id);
-      this.items = this.items.filter(function (idea) {
+      this.items = this.items.filter(function (item) {
         return idea.id !== targetId;
       });
       this.store();
@@ -63,7 +63,7 @@ $(document).ready(function () {
 
     render: function () {
       itemsMasterContainer.html("");
-      this.items.forEach(function (idea) {
+      this.items.forEach(function (item) {
         itemsMasterContainer.prepend(idea.toHTML());
       }); // end of forEach
     }, // end of render
@@ -71,8 +71,8 @@ $(document).ready(function () {
     retrieve: function () {
       var retrieveditems = JSON.parse(localStorage.getItem("items"));
       if (retrieveditems) {
-        retrieveditems.forEach(function (idea) {
-          itemManager.items.push(new Idea(idea.title, idea.body, idea.id, idea.quality));
+        retrieveditems.forEach(function (item) {
+          itemManager.items.push(new Item(idea.title, idea.body, idea.id, idea.quality));
         });
       } // end of if statement
     }, // end of retrieve
@@ -147,9 +147,9 @@ $(document).ready(function () {
   } );
 
   function addUserInputToProgram() {
-    var newTitle = itemInput.val();
-    var newBody = aisleInput.val();
-    itemManager.add(newTitle, newBody);
+    var newItem = itemInput.val();
+    var newAisle = aisleInput.val();
+    itemManager.add(newItem, newAisle);
   }
 
   function clearInputFields() {
