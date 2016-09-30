@@ -12,16 +12,14 @@ $(document).ready(function () {
     this.note = note;
   }
 
-  Idea.prototype.toHTML = function () {
+  Item.prototype.toHTML = function () {
     return $(`
       <section id=${this.id} class="each-idea-container">
-        <h3 contenteditable="true" class="editable-title">${this.title}</h3>
-        <h4 contenteditable="true" class="editable-body">${this.body}</h4>
+        <h3 contenteditable="true" class="editable-title">${this.item}</h3>
+        <h4 contenteditable="true" class="editable-body">${this.aisle}</h4>
         <p>Id: ${this.id}</p>
-        <p>Quality: ${this.quality}</p>
-        <button class="button-to-delete-idea">Delete Idea</button>
-        <button class="upvote">Upvote</button>
-        <button class="downvote">Downvote</button>
+        <textarea>${this.note}</textarea>
+        <button class="delete-button"> Delete Item</button>
       </section>
       `);
   };
@@ -133,7 +131,7 @@ $(document).ready(function () {
     }
   });
 
-  itemsMasterContainer.on("click", ".button-to-delete-idea", function () {
+  itemsMasterContainer.on("click", ".delete-button", function () {
     var id = $(this).closest(".each-idea-container").attr("id");
     ideaManager.remove(id);
   } );
