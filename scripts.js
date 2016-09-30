@@ -9,16 +9,17 @@ $(document).ready(function () {
     this.item = item;
     this.aisle = aisle;
     this.id = id || Date.now();
-    this.note = note;
+    this.note = note || "Enter note here.";
   }
 
   Item.prototype.toHTML = function () {
     return $(`
       <section id=${this.id} class="each-idea-container">
-        <h3 contenteditable="true" class="editable-title">${this.item}</h3>
-        <h4 contenteditable="true" class="editable-body">${this.aisle}</h4>
+        <h3 contenteditable="true" class="editable-item"> Item: ${this.item}</h3>
+        <h4 contenteditable="true" class="editable-aisle"> Aisle: ${this.aisle}</h4>
         <p>Id: ${this.id}</p>
-        <textarea>${this.note}</textarea>
+        <input type="text" value="${this.note}" />
+        <button class="save-note"> Save Note</button>
         <button class="delete-button"> Delete Item</button>
       </section>
       `);
@@ -47,7 +48,7 @@ $(document).ready(function () {
     findID: function (id) {
       var targetId = parseInt(id);
       var found = this.items.find(function (item) {
-        return idea.id === targetId;
+        return item.id === targetId;
       });
       return found;
     },
@@ -101,7 +102,7 @@ $(document).ready(function () {
     }
   });
 
-  itemsMasterContainer.on("keyup", ".editable-title", function (key) {
+  itemsMasterContainer.on("keyup", ".editable-item", function (key) {
     if (key.which === 13) {
       var titleText = $(this).closest("h3").text();
       var id = $(this).closest(".each-idea-container").attr("id");
@@ -110,8 +111,17 @@ $(document).ready(function () {
   });
 
   itemsMasterContainer.on("click", ".delete-button", function () {
-    var id = $(this).closest(".each-idea-container").attr("id");
-    itemManager.remove(id);
+    let that = this;
+    let confirmDelete = confirm("Are you sure you want to delete the item?");
+    if (confirmDelete) {
+      var id = $(that).closest(".each-idea-container").attr("id");
+      itemManager.remove(id);
+    }
+  } );
+
+  itemsMasterContainer.on("click", ".save-note", function () {
+
+
   } );
 
   function addUserInputToProgram() {

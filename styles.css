@@ -10,6 +10,10 @@ h1 {
   border: 1px solid black;
 }
 
+#submit-button:hover {
+  background-color: rgb(42, 203, 254);
+}
+
 #item-status-message {
   font-size: 24px;
   margin: 30px auto;
@@ -26,4 +30,8 @@ h1 {
   border: 1px solid black;
   margin: 20px auto;
   text-align: center;
+}
+
+.delete-button {
+  background-color: rgb(219, 101, 93);
 }
