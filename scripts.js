@@ -1,6 +1,6 @@
 $(document).ready(function () {
-  var titleInput = $("#title-input");
-  var bodyInput = $("#body-input");
+  var itemInput = $("#item-input");
+  var aisleInput = $("#aisle-input");
   var submitButton = $("#submit-button");
   var ideasMasterContainer = $("#ideas-master-container");
   var noIdeasMessage = document.getElementById("no-ideas-message");
@@ -149,14 +149,14 @@ $(document).ready(function () {
   } );
 
   function addUserInputToProgram() {
-    var newTitle = titleInput.val();
-    var newBody = bodyInput.val();
+    var newTitle = itemInput.val();
+    var newBody = aisleInput.val();
     ideaManager.add(newTitle, newBody);
   }
 
   function clearInputFields() {
-    titleInput.val("");
-    bodyInput.val("");
+    itemInput.val("");
+    aisleInput.val("");
   }
 
   ideaManager.retrieve();
