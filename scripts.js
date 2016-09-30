@@ -9,7 +9,7 @@ $(document).ready(function () {
     this.item = item;
     this.aisle = aisle;
     this.id = id || Date.now();
-    this.note = note;
+    this.note = note || "Enter note here.";
   }
 
   Item.prototype.toHTML = function () {
