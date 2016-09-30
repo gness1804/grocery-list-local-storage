@@ -1,7 +1,12 @@
 $(document).ready(function () {
   var itemInput = $("#item-input");
   var aisleInput = $("#aisle-input");
+  const note = $("#note");
+  const quantity = $("#quantity");
+
   var submitButton = $("#submit-button");
+
+
   var itemsMasterContainer = $("#items-master-container");
   var itemStatusMessage = document.getElementById("item-status-message");
 
@@ -31,8 +36,8 @@ $(document).ready(function () {
 
     items: [],
 
-    add: function (newItem, newAisle) {
-      this.items.push(new Item(newItem, newAisle));
+    add: function (newItem, newAisle, newNote, newQuantity) {
+      this.items.push(new Item(newItem, newAisle, newNote, newQuantity));
       this.store();
       itemStatusMessage.innerText = "You have some good items! Why not add some more?";
     }, // end of add
@@ -74,7 +79,7 @@ $(document).ready(function () {
       var retrieveditems = JSON.parse(localStorage.getItem("items"));
       if (retrieveditems) {
         retrieveditems.forEach(function (item) {
-          itemManager.items.push(new Item(item.item, item.aisle, item.id, item.note));
+          itemManager.items.push(new Item(item.item, item.aisle, item.note, item.quantity, item.id));
         });
       } // end of if statement
     }, // end of retrieve
@@ -120,15 +125,12 @@ $(document).ready(function () {
     }
   } );
 
-  itemsMasterContainer.on("click", ".save-note", function () {
-
-
-  } );
-
   function addUserInputToProgram() {
     var newItem = itemInput.val();
     var newAisle = aisleInput.val();
-    itemManager.add(newItem, newAisle);
+    var newNote = note.val();
+    var newQuantity = quantity.val();
+    itemManager.add(newItem, newAisle, newNote, newQuantity);
   }
 
   function clearInputFields() {
