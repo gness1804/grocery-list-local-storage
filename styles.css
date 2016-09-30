@@ -27,3 +27,7 @@ h1 {
   margin: 20px auto;
   text-align: center;
 }
+
+.delete-button {
+  background-color: rgb(219, 101, 93);
+}

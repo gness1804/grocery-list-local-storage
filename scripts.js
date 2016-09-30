@@ -15,10 +15,11 @@ $(document).ready(function () {
   Item.prototype.toHTML = function () {
     return $(`
       <section id=${this.id} class="each-idea-container">
-        <h3 contenteditable="true" class="editable-title">${this.item}</h3>
-        <h4 contenteditable="true" class="editable-body">${this.aisle}</h4>
+        <h3 contenteditable="true" class="editable-item"> Item: ${this.item}</h3>
+        <h4 contenteditable="true" class="editable-aisle"> Aisle: ${this.aisle}</h4>
         <p>Id: ${this.id}</p>
         <textarea>${this.note}</textarea>
+        <button class="save-note"> Save Note</button>
         <button class="delete-button"> Delete Item</button>
       </section>
       `);
@@ -101,7 +102,7 @@ $(document).ready(function () {
     }
   });
 
-  itemsMasterContainer.on("keyup", ".editable-title", function (key) {
+  itemsMasterContainer.on("keyup", ".editable-item", function (key) {
     if (key.which === 13) {
       var titleText = $(this).closest("h3").text();
       var id = $(this).closest(".each-idea-container").attr("id");
