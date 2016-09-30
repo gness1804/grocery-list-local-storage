@@ -1,5 +1,5 @@
-##Idea Box Re-Created
+##Grocery List with Local storage
 
-This is a re-creation of my [Idea Box project](https://github.com/adam-rice/IdeaBox) from a few weeks ago. It employs bare-bones CSS and establishes most of the core functionality from the original project, using different and more effective JavaScript (such as forEach as opposed to the original for loops) when possible. I am undertaking this project in order to strengthen my understanding of JSON and local storage as well as object-oriented programming.
+[Try it out!](https://gness1804.github.io/grocery-list-local-storage/)
 
-See the [original project repo](https://github.com/adam-rice/IdeaBox) for the original project specs and other details.
+This is a grocery list app modeled on [Idea Box](https://github.com/gness1804/IdeaBox). It allows the user to add items to the "cart" and stores them in local storage so that the item data are saved upon reload. The current attributes permitted per item are name, aisle, id (automatically generated to keep track of each item), quantity, and a note. More features coming soon.  
