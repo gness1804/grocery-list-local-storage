@@ -51,6 +51,14 @@ $(document).ready(function () {
       }
     }, //end of checkIfClear
 
+    count: function () {
+      let count = 0;
+      for (var i = 0; i < this.items.length; i++) {
+        count = count + 1;
+      }
+      console.log(count);
+    },
+
     findID: function (id) {
       var targetId = parseInt(id);
       var found = this.items.find(function (item) {
@@ -98,6 +106,7 @@ $(document).ready(function () {
 
   submitButton.on("click", function () {
     addUserInputToProgram();
+    countItems();
     clearInputFields();
   });
 
@@ -107,6 +116,10 @@ $(document).ready(function () {
       clearInputFields();
     }
   });
+
+  function countItems() {
+    itemManager.count();
+  }
 
   itemsMasterContainer.on("keyup", ".editable-item", function (key) {
     if (key.which === 13) {
