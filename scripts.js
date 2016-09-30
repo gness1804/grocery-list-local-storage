@@ -18,9 +18,9 @@ $(document).ready(function () {
       <section id=${this.id} class="each-idea-container">
         <h3 contenteditable="true" class="editable-item"> Item: ${this.item}</h3>
         <h4 contenteditable="true" class="editable-aisle"> Aisle: ${this.aisle}</h4>
+        <h5 class="note"> Note: ${this.note}</h5>
+        <h6 class="quantity"> Quantity: ${this.quantity}</h6>
         <p>Id: ${this.id}</p>
-        <input type="text" value="${this.note}" />
-        <button class="save-note"> Save Note</button>
         <button class="delete-button"> Delete Item</button>
       </section>
       `);
