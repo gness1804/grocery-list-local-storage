@@ -24,8 +24,8 @@ $(document).ready(function () {
       `);
   };
 
-  var ideaManager = {
-    //this === ideaManager
+  var itemManager = {
+    //this === itemManager
 
     ideas: [],
 
@@ -72,7 +72,7 @@ $(document).ready(function () {
       var retrievedIdeas = JSON.parse(localStorage.getItem("ideas"));
       if (retrievedIdeas) {
         retrievedIdeas.forEach(function (idea) {
-          ideaManager.ideas.push(new Idea(idea.title, idea.body, idea.id, idea.quality));
+          itemManager.ideas.push(new Idea(idea.title, idea.body, idea.id, idea.quality));
         });
       } // end of if statement
     }, // end of retrieve
@@ -82,7 +82,7 @@ $(document).ready(function () {
       this.render();
     }, // end of store
 
-  }; // end of ideaManager
+  }; // end of itemManager
 
   Idea.prototype.upvoteIdea = function () {
     var quality = this.quality;
@@ -92,7 +92,7 @@ $(document).ready(function () {
     else if (quality === "plausible") {
       this.quality = "genius";
     }
-    ideaManager.store();
+    itemManager.store();
   };
 
   Idea.prototype.downvoteIdea = function () {
@@ -103,12 +103,12 @@ $(document).ready(function () {
     else if (quality === "plausible") {
       this.quality = "swill";
     }
-    ideaManager.store();
+    itemManager.store();
   };
 
   Idea.prototype.editTitleOfIdea = function (titleText) {
     this.title = titleText;
-    ideaManager.store();
+    itemManager.store();
   };
 
   submitButton.on("click", function () {
@@ -127,29 +127,29 @@ $(document).ready(function () {
     if (key.which === 13) {
       var titleText = $(this).closest("h3").text();
       var id = $(this).closest(".each-idea-container").attr("id");
-      ideaManager.findID(id).editTitleOfIdea(titleText);
+      itemManager.findID(id).editTitleOfIdea(titleText);
     }
   });
 
   itemsMasterContainer.on("click", ".delete-button", function () {
     var id = $(this).closest(".each-idea-container").attr("id");
-    ideaManager.remove(id);
+    itemManager.remove(id);
   } );
 
   itemsMasterContainer.on("click", ".upvote", function () {
     var id = $(this).closest(".each-idea-container").attr("id");
-    ideaManager.findID(id).upvoteIdea();
+    itemManager.findID(id).upvoteIdea();
   } );
 
   itemsMasterContainer.on("click", ".downvote", function () {
     var id = $(this).closest(".each-idea-container").attr("id");
-    ideaManager.findID(id).downvoteIdea();
+    itemManager.findID(id).downvoteIdea();
   } );
 
   function addUserInputToProgram() {
     var newTitle = itemInput.val();
     var newBody = aisleInput.val();
-    ideaManager.add(newTitle, newBody);
+    itemManager.add(newTitle, newBody);
   }
 
   function clearInputFields() {
@@ -157,8 +157,8 @@ $(document).ready(function () {
     aisleInput.val("");
   }
 
-  ideaManager.retrieve();
-  ideaManager.render();
-  ideaManager.checkIfClear();
+  itemManager.retrieve();
+  itemManager.render();
+  itemManager.checkIfClear();
 
 }); //end of jQuery body
