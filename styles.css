@@ -23,6 +23,7 @@ input {
 
 #submit-button:hover {
   background-color: rgb(42, 203, 254);
+  cursor: pointer;
 }
 
 #item-status-message {
@@ -45,4 +46,9 @@ input {
 
 .delete-button {
   background-color: rgb(219, 101, 93);
+}
+
+.delete-button:hover {
+  background-color: rgb(238, 73, 20);
+  cursor: pointer;
 }
