@@ -53,11 +53,11 @@ input {
   text-align: center;
 }
 
-.delete-button {
+.delete-button, #delete-all-items-button {
   background-color: rgb(219, 101, 93);
 }
 
-.delete-button:hover {
+.delete-button:hover, #delete-all-items-button:hover {
   background-color: rgb(238, 73, 20);
   cursor: pointer;
 }
