@@ -7,6 +7,7 @@ $(document).ready(function () {
 
   const submitButton = $("#submit-button");
   const sortItemsButton = $("#sort-items-button");
+  const deleteAllItemsButton = $("#delete-all-items-button");
 
   const itemsMasterContainer = $("#items-master-container");
   const itemStatusMessage = document.getElementById("item-status-message");
@@ -53,6 +54,10 @@ $(document).ready(function () {
       else {
         itemStatusMessage.innerText = "There are no items on your list!";
       }
+    },
+
+    deleteAllItems: function () {
+      
     },
 
     findID: function (id) {
@@ -181,6 +186,10 @@ $(document).ready(function () {
 
   category.on("change", function () {
     assignAisle();
+  });
+
+  deleteAllItemsButton.on("click", function () {
+    itemManager.deleteAllItems();
   });
 
   function addUserInputToProgram() {
