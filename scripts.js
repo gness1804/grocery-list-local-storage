@@ -197,6 +197,7 @@ $(document).ready(function () {
     aisleInput.val("");
     note.val("");
     quantity.val("");
+    category.val("");
   }
 
   itemManager.retrieve();
