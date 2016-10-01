@@ -14,8 +14,8 @@ $(document).ready(function () {
   function Item(item, aisle, note, quantity, id) {
     this.item = item;
     this.aisle = aisle;
-    this.note = note || "(No note added)";
-    this.quantity = quantity || "No quantity noted";
+    this.note = note || "";
+    this.quantity = quantity || "";
     this.id = id || Date.now();
   }
 
