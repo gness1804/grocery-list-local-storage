@@ -39,17 +39,7 @@ $(document).ready(function () {
       this.items.push(new Item(newItem, newAisle, newNote, newQuantity));
       this.store();
       this.count();
-      // itemStatusMessage.innerText = "You have some good items! Why not add some more?";
     }, // end of add
-
-    // checkIfClear: function () {
-    //   if (this.items.length === 0) {
-    //     itemStatusMessage.innerText = "There are no items here! We want to see your bright items!";
-    //   }
-    //   else {
-    //     itemStatusMessage.innerText = "You have some good items! Why not add some more?";
-    //   }
-    // }, //end of checkIfClear
 
     count: function () {
       let count = 0;
@@ -73,7 +63,7 @@ $(document).ready(function () {
         return item.id !== targetId;
       });
       this.store();
-      this.checkIfClear();
+      this.count();
     }, // end of remove
 
     render: function () {
@@ -148,6 +138,6 @@ $(document).ready(function () {
 
   itemManager.retrieve();
   itemManager.render();
-  // itemManager.checkIfClear();
+  itemManager.count();
 
 }); //end of jQuery body
