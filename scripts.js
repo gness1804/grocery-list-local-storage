@@ -26,7 +26,6 @@ $(document).ready(function () {
         <h3 contenteditable="true" class="editable-aisle"> ${this.aisle}</h3>
         <h4 contenteditable="true" class="note"> ${this.note}</h4>
         <h5 contenteditable="true" class="quantity"> ${this.quantity}</h5>
-        <p>Id: ${this.id}</p>
         <button class="delete-button"> Delete Item</button>
       </section>
       `);
