@@ -6,7 +6,6 @@ $(document).ready(function () {
 
   var submitButton = $("#submit-button");
 
-
   var itemsMasterContainer = $("#items-master-container");
   var itemStatusMessage = document.getElementById("item-status-message");
 
@@ -39,24 +38,25 @@ $(document).ready(function () {
     add: function (newItem, newAisle, newNote, newQuantity) {
       this.items.push(new Item(newItem, newAisle, newNote, newQuantity));
       this.store();
-      itemStatusMessage.innerText = "You have some good items! Why not add some more?";
+      this.count();
+      // itemStatusMessage.innerText = "You have some good items! Why not add some more?";
     }, // end of add
 
-    checkIfClear: function () {
-      if (this.items.length === 0) {
-        itemStatusMessage.innerText = "There are no items here! We want to see your bright items!";
-      }
-      else {
-        itemStatusMessage.innerText = "You have some good items! Why not add some more?";
-      }
-    }, //end of checkIfClear
+    // checkIfClear: function () {
+    //   if (this.items.length === 0) {
+    //     itemStatusMessage.innerText = "There are no items here! We want to see your bright items!";
+    //   }
+    //   else {
+    //     itemStatusMessage.innerText = "You have some good items! Why not add some more?";
+    //   }
+    // }, //end of checkIfClear
 
     count: function () {
       let count = 0;
       for (var i = 0; i < this.items.length; i++) {
         count = count + 1;
       }
-      console.log(count);
+      itemStatusMessage.innerText = "You have " + count + " " + "items remaining on your list.";
     },
 
     findID: function (id) {
@@ -106,7 +106,6 @@ $(document).ready(function () {
 
   submitButton.on("click", function () {
     addUserInputToProgram();
-    countItems();
     clearInputFields();
   });
 
@@ -116,10 +115,6 @@ $(document).ready(function () {
       clearInputFields();
     }
   });
-
-  function countItems() {
-    itemManager.count();
-  }
 
   itemsMasterContainer.on("keyup", ".editable-item", function (key) {
     if (key.which === 13) {
@@ -153,6 +148,6 @@ $(document).ready(function () {
 
   itemManager.retrieve();
   itemManager.render();
-  itemManager.checkIfClear();
+  // itemManager.checkIfClear();
 
 }); //end of jQuery body
