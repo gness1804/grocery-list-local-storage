@@ -6,6 +6,7 @@ $(document).ready(function () {
   const quantity = $("#quantity");
 
   const submitButton = $("#submit-button");
+  const sortItemsButton = $("#sort-items-button");
 
   const itemsMasterContainer = $("#items-master-container");
   const itemStatusMessage = document.getElementById("item-status-message");
@@ -88,7 +89,7 @@ $(document).ready(function () {
       } // end of if statement
     }, // end of retrieve
 
-    sort: function () {
+    sortItems: function () {
       
     },
 
@@ -122,6 +123,10 @@ $(document).ready(function () {
   submitButton.on("click", function () {
     addUserInputToProgram();
     clearInputFields();
+  });
+
+  sortItemsButton.on("click", function () {
+    itemManager.sortItems();
   });
 
   $("input").on("keyup", function (key) {
