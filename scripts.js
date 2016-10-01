@@ -237,19 +237,22 @@ $(document).ready(function () {
       selectedAisle = 2;
     }
     else if (chosenCategory === "Deli/Prepared Foods") {
-      selectedAisle = "Deli/Prepared Foods";
+      selectedAisle = 0;
+      optionalNote = "Deli";
     }
     else if (chosenCategory === "Dish+Laundry Detergent") {
       selectedAisle = 9;
     }
     else if (chosenCategory === "Frozen Items") {
       selectedAisle = 11;
+      optionalNote = "Or aisle 12";
     }
     else if (chosenCategory === "Household Goods") {
       selectedAisle = 8;
     }
     else if (chosenCategory === "Meat") {
-      selectedAisle = "Meat";
+      selectedAisle = 0;
+      optionalNote = "Meat Section";
     }
     else if (chosenCategory === "Medicines (OTC)") {
       selectedAisle = 18;
@@ -259,12 +262,15 @@ $(document).ready(function () {
     }
     else if (chosenCategory === "Personal Care Items") {
       selectedAisle = 17;
+      optionalNote = "Or aisle 18";
     }
     else if (chosenCategory === "Pest Control") {
-      selectedAisle = "Front";
+      selectedAisle = 0;
+      optionalNote = "Front of Store";
     }
     else if (chosenCategory === "Produce") {
-      selectedAisle = "Produce";
+      selectedAisle = 0;
+      optionalNote = "Produce Section";
     }
     else if (chosenCategory === "Soda") {
       selectedAisle = 22;
