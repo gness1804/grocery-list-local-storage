@@ -14,17 +14,50 @@
 
     <section id="input-items-container">
 
-      <input id="item-input" type="text" placeholder="Item">
+      <input id="item-input" type="text" placeholder="Item" list="groceries">
+      <datalist id="groceries">
+            <option value="apples"></option>
+     				<option value="bagels"></option>
+     				<option value="body wash"></option>
+     				<option value="bread"></option>
+     				<option value="chicken"></option>
+     				<option value="egg rolls"></option>
+     				<option value="frozen dinners"></option>
+     				<option value="frozen lunches"></option>
+     				<option value="green pepper"></option>
+     				<option value="ground beef"></option>
+     				<option value="lunchmeat"></option>
+     				<option value="magnums"></option>
+     				<option value="olives"></option>
+     				<option value="pasta"></option>
+     				<option value="pasta sauce"></option>
+     				<option value="paper towels"></option>
+     				<option value="peanuts"></option>
+     				<option value="rice"></option>
+     				<option value="salsa"></option>
+     				<option value="soda"></option>
+     				<option value="soup"></option>
+            <option value="sushi"></option>
+     				<option value="taco seasoning"></option>
+     				<option value="tortillas"></option>
+     				<option value="wine"></option>
+          </datalist>
+
       <input id="aisle-input" type="text" placeholder="Aisle">
       <input id="note" type="text" placeholder="Note">
       <input id="quantity" type="text" placeholder="Quantity">
 
       <button id="submit-button" type="button">Submit</button>
 
-    </section>
-    <article id="item-status-message"></article>
+    </section> <!-- end of input container -->
+
+    <article id="item-status-message">
+      <!-- Notification of number of items to buy appears here -->
+    </article>
 
     <section id="items-master-container">
+      <!-- Items and their info generate here. -->
     </section>
+
   </body>
 </html>
