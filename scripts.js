@@ -7,6 +7,7 @@ $(document).ready(function () {
 
   const submitButton = $("#submit-button");
   const sortItemsButton = $("#sort-items-button");
+  const deleteAllItemsButton = $("#delete-all-items-button");
 
   const itemsMasterContainer = $("#items-master-container");
   const itemStatusMessage = document.getElementById("item-status-message");
@@ -14,8 +15,8 @@ $(document).ready(function () {
   function Item(item, aisle, note, quantity, id) {
     this.item = item;
     this.aisle = aisle;
-    this.note = note || "(No note added)";
-    this.quantity = quantity || "No quantity noted";
+    this.note = note || "";
+    this.quantity = quantity || "";
     this.id = id || Date.now();
   }
 
@@ -24,9 +25,8 @@ $(document).ready(function () {
       <section id=${this.id} class="each-idea-container">
         <h2 contenteditable="true" class="editable-item"> ${this.item}</h2>
         <h3 contenteditable="true" class="editable-aisle"> ${this.aisle}</h3>
-        <h4 contenteditable="true" class="note"> ${this.note}</h4>
+        <h4 contenteditable="true" class="note">${this.note}</h4>
         <h5 contenteditable="true" class="quantity"> ${this.quantity}</h5>
-        <p>Id: ${this.id}</p>
         <button class="delete-button"> Delete Item</button>
       </section>
       `);
@@ -54,6 +54,12 @@ $(document).ready(function () {
       else {
         itemStatusMessage.innerText = "There are no items on your list!";
       }
+    },
+
+    deleteAllItems: function () {
+      this.items = [];
+      this.store();
+      this.count();
     },
 
     findID: function (id) {
@@ -184,6 +190,13 @@ $(document).ready(function () {
     assignAisle();
   });
 
+  deleteAllItemsButton.on("click", function () {
+    let confirmDelete = confirm("Warning! You are about to delete ALL your items! This cannot be undone! Please OK to delete all your items.");
+    if (confirmDelete) {
+      itemManager.deleteAllItems();
+    }
+  }); // end of deleteAllItemsButton function
+
   function addUserInputToProgram() {
     var newItem = itemInput.val();
     var newAisle = aisleInput.val();
@@ -212,7 +225,7 @@ $(document).ready(function () {
     let optionalNote;
 
     if (chosenCategory === "Bakery") {
-      selectedAisle = 0;
+      selectedAisle = "";
       optionalNote = "Bakery Section";
     }
     else if (chosenCategory === "Bottled Water") {
@@ -227,6 +240,10 @@ $(document).ready(function () {
     else if (chosenCategory === "Canned Fish/Ethnic Foods/Pasta+Pasta Sauce/Rice") {
       selectedAisle = 6;
     }
+    else if (chosenCategory === "Checkout") {
+      selectedAisle = "";
+      optionalNote = "At checkout";
+    }
     else if (chosenCategory === "Chips/Nuts") {
       selectedAisle = 19;
     }
@@ -234,7 +251,7 @@ $(document).ready(function () {
       selectedAisle = 2;
     }
     else if (chosenCategory === "Deli/Prepared Foods") {
-      selectedAisle = 0;
+      selectedAisle = "";
       optionalNote = "Deli";
     }
     else if (chosenCategory === "Dish+Laundry Detergent") {
@@ -248,7 +265,7 @@ $(document).ready(function () {
       selectedAisle = 8;
     }
     else if (chosenCategory === "Meat") {
-      selectedAisle = 0;
+      selectedAisle = "";
       optionalNote = "Meat Section";
     }
     else if (chosenCategory === "Medicines (OTC)") {
@@ -262,11 +279,11 @@ $(document).ready(function () {
       optionalNote = "Or aisle 18";
     }
     else if (chosenCategory === "Pest Control") {
-      selectedAisle = 0;
+      selectedAisle = "";
       optionalNote = "Front of Store";
     }
     else if (chosenCategory === "Produce") {
-      selectedAisle = 0;
+      selectedAisle = "";
       optionalNote = "Produce Section";
     }
     else if (chosenCategory === "Soda") {
