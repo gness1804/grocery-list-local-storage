@@ -156,8 +156,11 @@ $(document).ready(function () {
 
     let assignedAisle;
 
-    if (chosenCategory === "Breads/PBJ/Honey") {
-      assignedAisle = 13;
+    if (chosenCategory === "Baking Items/Spices") {
+      assignedAisle = 5;
+    }
+    else if (chosenCategory === "Cooking Wines/Condiments/Olives") {
+      assignedAisle = 2;
     }
 
     aisleInput.val(assignedAisle);
