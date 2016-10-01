@@ -57,7 +57,9 @@ $(document).ready(function () {
     },
 
     deleteAllItems: function () {
-      
+      this.items = [];
+      this.store();
+      this.count();
     },
 
     findID: function (id) {
