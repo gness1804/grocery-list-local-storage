@@ -6,6 +6,7 @@ $(document).ready(function () {
   const quantity = $("#quantity");
 
   const submitButton = $("#submit-button");
+  const sortItemsButton = $("#sort-items-button");
 
   const itemsMasterContainer = $("#items-master-container");
   const itemStatusMessage = document.getElementById("item-status-message");
@@ -75,7 +76,7 @@ $(document).ready(function () {
     render: function () {
       itemsMasterContainer.html("");
       this.items.forEach(function (item) {
-        itemsMasterContainer.prepend(item.toHTML());
+        itemsMasterContainer.append(item.toHTML());
       }); // end of forEach
     }, // end of render
 
@@ -87,6 +88,13 @@ $(document).ready(function () {
         });
       } // end of if statement
     }, // end of retrieve
+
+    sortItems: function () {
+      this.items.sort(function (a, b) {
+        return a.aisle - b.aisle;
+      });
+      this.store();
+    }, //end of sortItems
 
     store: function () {
       localStorage.setItem("items", JSON.stringify(this.items));
@@ -118,6 +126,10 @@ $(document).ready(function () {
   submitButton.on("click", function () {
     addUserInputToProgram();
     clearInputFields();
+  });
+
+  sortItemsButton.on("click", function () {
+    itemManager.sortItems();
   });
 
   $("input").on("keyup", function (key) {

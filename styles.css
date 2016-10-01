@@ -6,8 +6,19 @@ h1 {
   text-align: center;
 }
 
-#item-input, #aisle-input {
+input {
   border: 1px solid black;
+}
+
+@media screen and (max-width: 500px) { /* for smartphones */
+  input {
+    display: block;
+    margin: auto;
+  }
+}
+
+#submit-button {
+  background-color: rgb(160, 236, 175);
 }
 
 #submit-button:hover {
