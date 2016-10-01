@@ -153,7 +153,13 @@ $(document).ready(function () {
   function assignAisle() {
 
     let chosenCategory = category.val();
-    console.log(chosenCategory);
+
+    let assignedAisle;
+
+    if (chosenCategory === "Breads/PBJ/Honey") {
+      assignedAisle = 13;
+    }
+    console.log(assignedAisle);
 
   } //end of assignAisle
 
