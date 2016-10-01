@@ -195,6 +195,8 @@ $(document).ready(function () {
   function clearInputFields() {
     itemInput.val("");
     aisleInput.val("");
+    note.val("");
+    quantity.val("");
   }
 
   itemManager.retrieve();
