@@ -159,6 +159,9 @@ $(document).ready(function () {
     if (chosenCategory === "Baking Items/Spices") {
       selectedAisle = 5;
     }
+    else if (chosenCategory === "Bottled Water") {
+      selectedAisle = 20;
+    }
     else if (chosenCategory === "Breads/PBJ/Honey") {
       selectedAisle = 13;
     }
@@ -167,6 +170,9 @@ $(document).ready(function () {
     }
     else if (chosenCategory === "Canned Fish/Ethnic Foods/Pasta+Pasta Sauce/Rice") {
       selectedAisle = 6;
+    }
+    else if (chosenCategory === "Chips/Nuts") {
+      selectedAisle = 19;
     }
     else if (chosenCategory === "Cooking Wines/Condiments/Olives") {
       selectedAisle = 2;
@@ -180,11 +186,23 @@ $(document).ready(function () {
     else if (chosenCategory === "Household Goods") {
       selectedAisle = 8;
     }
+    else if (chosenCategory === "Medicines (OTC)") {
+      selectedAisle = 18;
+    }
     else if (chosenCategory === "Office Supplies") {
       selectedAisle = 16;
     }
     else if (chosenCategory === "Personal Care Items") {
       selectedAisle = 17;
+    }
+    else if (chosenCategory === "Pest Control") {
+      selectedAisle = "Front";
+    }
+    else if (chosenCategory === "Produce") {
+      selectedAisle = "Produce";
+    }
+    else if (chosenCategory === "Soda") {
+      selectedAisle = 22;
     }
 
     aisleInput.val(selectedAisle);
