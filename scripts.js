@@ -90,8 +90,12 @@ $(document).ready(function () {
     }, // end of retrieve
 
     sortItems: function () {
-      
-    },
+      // console.log(this.items[0].aisle);
+      this.items.sort(function (a, b) {
+        return a.aisle - b.aisle;
+      });
+      console.log(this.items);
+    }, //end of sortItems
 
     store: function () {
       localStorage.setItem("items", JSON.stringify(this.items));
