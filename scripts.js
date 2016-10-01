@@ -88,6 +88,10 @@ $(document).ready(function () {
       } // end of if statement
     }, // end of retrieve
 
+    sort: function () {
+      
+    },
+
     store: function () {
       localStorage.setItem("items", JSON.stringify(this.items));
       this.render();
