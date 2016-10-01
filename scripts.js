@@ -13,7 +13,7 @@ $(document).ready(function () {
   function Item(item, aisle, note, quantity, id) {
     this.item = item;
     this.aisle = aisle;
-    this.note = note || "No note added";
+    this.note = note || "(No note added)";
     this.quantity = quantity || "No quantity noted";
     this.id = id || Date.now();
   }
