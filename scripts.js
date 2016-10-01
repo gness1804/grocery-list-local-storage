@@ -1,14 +1,14 @@
 $(document).ready(function () {
-  var itemInput = $("#item-input");
-  var aisleInput = $("#aisle-input");
+  const itemInput = $("#item-input");
+  const category = $("#category");
+  const aisleInput = $("#aisle-input");
   const note = $("#note");
   const quantity = $("#quantity");
 
-  var submitButton = $("#submit-button");
+  const submitButton = $("#submit-button");
 
-
-  var itemsMasterContainer = $("#items-master-container");
-  var itemStatusMessage = document.getElementById("item-status-message");
+  const itemsMasterContainer = $("#items-master-container");
+  const itemStatusMessage = document.getElementById("item-status-message");
 
   function Item(item, aisle, note, quantity, id) {
     this.item = item;
@@ -39,17 +39,21 @@ $(document).ready(function () {
     add: function (newItem, newAisle, newNote, newQuantity) {
       this.items.push(new Item(newItem, newAisle, newNote, newQuantity));
       this.store();
-      itemStatusMessage.innerText = "You have some good items! Why not add some more?";
+      this.count();
     }, // end of add
 
-    checkIfClear: function () {
-      if (this.items.length === 0) {
-        itemStatusMessage.innerText = "There are no items here! We want to see your bright items!";
+    count: function () {
+      let count = 0;
+      for (var i = 0; i < this.items.length; i++) {
+        count = count + 1;
+      }
+      if (count > 0) {
+        itemStatusMessage.innerText = "You have " + count + " " + "item(s) remaining on your list.";
       }
       else {
-        itemStatusMessage.innerText = "You have some good items! Why not add some more?";
+        itemStatusMessage.innerText = "There are no items on your list!";
       }
-    }, //end of checkIfClear
+    },
 
     findID: function (id) {
       var targetId = parseInt(id);
@@ -65,7 +69,7 @@ $(document).ready(function () {
         return item.id !== targetId;
       });
       this.store();
-      this.checkIfClear();
+      this.count();
     }, // end of remove
 
     render: function () {
@@ -125,6 +129,10 @@ $(document).ready(function () {
     }
   } );
 
+  category.on("change", function () {
+    assignAisle();
+  });
+
   function addUserInputToProgram() {
     var newItem = itemInput.val();
     var newAisle = aisleInput.val();
@@ -140,6 +148,74 @@ $(document).ready(function () {
 
   itemManager.retrieve();
   itemManager.render();
-  itemManager.checkIfClear();
+  itemManager.count();
+
+  function assignAisle() {
+
+    let chosenCategory = category.val();
+
+    let selectedAisle;
+
+    if (chosenCategory === "Bakery/Baked Goods") {
+      selectedAisle = "Bakery/Baked Goods";
+    }
+    else if (chosenCategory === "Baking Items/Spices") {
+      selectedAisle = 5;
+    }
+    else if (chosenCategory === "Bottled Water") {
+      selectedAisle = 20;
+    }
+    else if (chosenCategory === "Breads/PBJ/Honey") {
+      selectedAisle = 13;
+    }
+    else if (chosenCategory === "Canned Beans/Tomatoes/Soups") {
+      selectedAisle = 7;
+    }
+    else if (chosenCategory === "Canned Fish/Ethnic Foods/Pasta+Pasta Sauce/Rice") {
+      selectedAisle = 6;
+    }
+    else if (chosenCategory === "Chips/Nuts") {
+      selectedAisle = 19;
+    }
+    else if (chosenCategory === "Cooking Wines/Condiments/Olives") {
+      selectedAisle = 2;
+    }
+    else if (chosenCategory === "Deli/Prepared Foods") {
+      selectedAisle = "Deli/Prepared Foods";
+    }
+    else if (chosenCategory === "Dish+Laundry Detergent") {
+      selectedAisle = 9;
+    }
+    else if (chosenCategory === "Frozen Items") {
+      selectedAisle = 11;
+    }
+    else if (chosenCategory === "Household Goods") {
+      selectedAisle = 8;
+    }
+    else if (chosenCategory === "Meat") {
+      selectedAisle = "Meat";
+    }
+    else if (chosenCategory === "Medicines (OTC)") {
+      selectedAisle = 18;
+    }
+    else if (chosenCategory === "Office Supplies") {
+      selectedAisle = 16;
+    }
+    else if (chosenCategory === "Personal Care Items") {
+      selectedAisle = 17;
+    }
+    else if (chosenCategory === "Pest Control") {
+      selectedAisle = "Front";
+    }
+    else if (chosenCategory === "Produce") {
+      selectedAisle = "Produce";
+    }
+    else if (chosenCategory === "Soda") {
+      selectedAisle = 22;
+    }
+
+    aisleInput.val(selectedAisle);
+
+  } //end of assignAisle
 
 }); //end of jQuery body
