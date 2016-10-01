@@ -197,7 +197,7 @@ $(document).ready(function () {
     aisleInput.val("");
     note.val("");
     quantity.val("");
-    category.val("");
+    category.val("Please choose a category.");
   }
 
   itemManager.retrieve();
@@ -211,12 +211,9 @@ $(document).ready(function () {
     let selectedAisle;
     let optionalNote;
 
-    if (chosenCategory === "Bakery/Baked Goods") {
+    if (chosenCategory === "Bakery") {
       selectedAisle = 0;
       optionalNote = "Bakery Section";
-    }
-    else if (chosenCategory === "Baking Items/Spices") {
-      selectedAisle = 5;
     }
     else if (chosenCategory === "Bottled Water") {
       selectedAisle = 20;
@@ -274,6 +271,9 @@ $(document).ready(function () {
     }
     else if (chosenCategory === "Soda") {
       selectedAisle = 22;
+    }
+    else if (chosenCategory === "Spices and Baking Items") {
+      selectedAisle = 5;
     }
 
     aisleInput.val(selectedAisle);
