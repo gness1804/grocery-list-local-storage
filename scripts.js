@@ -174,8 +174,17 @@ $(document).ready(function () {
     else if (chosenCategory === "Dish+Laundry Detergent") {
       selectedAisle = 9;
     }
+    else if (chosenCategory === "Frozen Items") {
+      selectedAisle = 11;
+    }
     else if (chosenCategory === "Household Goods") {
       selectedAisle = 8;
+    }
+    else if (chosenCategory === "Office Supplies") {
+      selectedAisle = 16;
+    }
+    else if (chosenCategory === "Personal Care Items") {
+      selectedAisle = 17;
     }
 
     aisleInput.val(selectedAisle);
