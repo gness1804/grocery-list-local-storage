@@ -23,8 +23,8 @@ $(document).ready(function () {
     return $(`
       <section id=${this.id} class="each-idea-container">
         <h2 contenteditable="true" class="editable-item"> ${this.item}</h2>
-        <h3 contenteditable="true" class="editable-aisle"> Aisle: ${this.aisle}</h3>
-        <h4 contenteditable="true" class="note"> ${this.note}</h4>
+        <h3 contenteditable="true" class="editable-aisle"> ${this.aisle}</h3>
+        <h4 contenteditable="true" class="note">${this.note}</h4>
         <h5 contenteditable="true" class="quantity"> ${this.quantity}</h5>
         <button class="delete-button"> Delete Item</button>
       </section>
