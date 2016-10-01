@@ -252,7 +252,7 @@ $(document).ready(function () {
       selectedAisle = 8;
     }
     else if (chosenCategory === "Meat") {
-      selectedAisle = 0;
+      selectedAisle = "";
       optionalNote = "Meat Section";
     }
     else if (chosenCategory === "Medicines (OTC)") {
