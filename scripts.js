@@ -159,7 +159,8 @@ $(document).ready(function () {
     if (chosenCategory === "Breads/PBJ/Honey") {
       assignedAisle = 13;
     }
-    console.log(assignedAisle);
+
+    aisleInput.val(assignedAisle);
 
   } //end of assignAisle
 
