@@ -209,9 +209,11 @@ $(document).ready(function () {
     let chosenCategory = category.val();
 
     let selectedAisle;
+    let optionalNote;
 
     if (chosenCategory === "Bakery/Baked Goods") {
-      selectedAisle = "Bakery/Baked Goods";
+      selectedAisle = 0;
+      optionalNote = "Bakery Section";
     }
     else if (chosenCategory === "Baking Items/Spices") {
       selectedAisle = 5;
@@ -269,6 +271,7 @@ $(document).ready(function () {
     }
 
     aisleInput.val(selectedAisle);
+    note.val(optionalNote);
 
   } //end of assignAisle
 
