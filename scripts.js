@@ -46,7 +46,12 @@ $(document).ready(function () {
       for (var i = 0; i < this.items.length; i++) {
         count = count + 1;
       }
-      itemStatusMessage.innerText = "You have " + count + " " + "items remaining on your list.";
+      if (count > 0) {
+        itemStatusMessage.innerText = "You have " + count + " " + "items remaining on your list.";
+      }
+      else {
+        itemStatusMessage.innerText = "There are no items on your list!";
+      }
     },
 
     findID: function (id) {
