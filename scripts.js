@@ -1,5 +1,6 @@
 $(document).ready(function () {
   const itemInput = $("#item-input");
+  const category = $("#category");
   const aisleInput = $("#aisle-input");
   const note = $("#note");
   const quantity = $("#quantity");
@@ -127,6 +128,10 @@ $(document).ready(function () {
       itemManager.remove(id);
     }
   } );
+
+  category.on("change", function () {
+    
+  });
 
   function addUserInputToProgram() {
     var newItem = itemInput.val();
