@@ -75,8 +75,10 @@ $(document).ready(function () {
 
     render: function () {
       itemsMasterContainer.html("");
+      // this.sortItems();
+      console.log(this.items);
       this.items.forEach(function (item) {
-        itemsMasterContainer.prepend(item.toHTML());
+        itemsMasterContainer.append(item.toHTML());
       }); // end of forEach
     }, // end of render
 
@@ -90,11 +92,11 @@ $(document).ready(function () {
     }, // end of retrieve
 
     sortItems: function () {
-      // console.log(this.items[0].aisle);
       this.items.sort(function (a, b) {
         return a.aisle - b.aisle;
       });
-      console.log(this.items);
+      // console.log(this.items);
+      this.store();
     }, //end of sortItems
 
     store: function () {
