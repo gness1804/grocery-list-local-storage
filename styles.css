@@ -6,7 +6,7 @@ h1 {
   text-align: center;
 }
 
-#item-input, #aisle-input {
+input {
   border: 1px solid black;
 }
 
