@@ -227,6 +227,10 @@ $(document).ready(function () {
     else if (chosenCategory === "Canned Fish/Ethnic Foods/Pasta+Pasta Sauce/Rice") {
       selectedAisle = 6;
     }
+    else if (chosenCategory === "Checkout") {
+      selectedAisle = 0;
+      optionalNote = "At checkout";
+    }
     else if (chosenCategory === "Chips/Nuts") {
       selectedAisle = 19;
     }
