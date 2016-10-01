@@ -75,8 +75,6 @@ $(document).ready(function () {
 
     render: function () {
       itemsMasterContainer.html("");
-      // this.sortItems();
-      console.log(this.items);
       this.items.forEach(function (item) {
         itemsMasterContainer.append(item.toHTML());
       }); // end of forEach
@@ -95,7 +93,6 @@ $(document).ready(function () {
       this.items.sort(function (a, b) {
         return a.aisle - b.aisle;
       });
-      // console.log(this.items);
       this.store();
     }, //end of sortItems
 
