@@ -47,7 +47,7 @@ $(document).ready(function () {
         count = count + 1;
       }
       if (count > 0) {
-        itemStatusMessage.innerText = "You have " + count + " " + "items remaining on your list.";
+        itemStatusMessage.innerText = "You have " + count + " " + "item(s) remaining on your list.";
       }
       else {
         itemStatusMessage.innerText = "There are no items on your list!";
