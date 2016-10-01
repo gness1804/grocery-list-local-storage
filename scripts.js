@@ -105,6 +105,11 @@ $(document).ready(function () {
     itemManager.store();
   };
 
+  Item.prototype.editItemNote = function (text) {
+    this.note = text;
+    itemManager.store();
+  };
+
   submitButton.on("click", function () {
     addUserInputToProgram();
     clearInputFields();
@@ -130,6 +135,14 @@ $(document).ready(function () {
       var text = $(this).closest("h3").text();
       var id = $(this).closest(".each-idea-container").attr("id");
       itemManager.findID(id).editItemAisle(text);
+    }
+  });
+
+  itemsMasterContainer.on("keyup", ".note", function (key) {
+    if (key.which === 13) {
+      var text = $(this).closest("h4").text();
+      var id = $(this).closest(".each-idea-container").attr("id");
+      itemManager.findID(id).editItemNote(text);
     }
   });
 
