@@ -130,7 +130,7 @@ $(document).ready(function () {
   } );
 
   category.on("change", function () {
-    
+    assignAisle();
   });
 
   function addUserInputToProgram() {
@@ -152,7 +152,8 @@ $(document).ready(function () {
 
   function assignAisle() {
 
-
+    let chosenCategory = category.val();
+    console.log(chosenCategory);
 
   } //end of assignAisle
 
