@@ -212,7 +212,7 @@ $(document).ready(function () {
     let optionalNote;
 
     if (chosenCategory === "Bakery") {
-      selectedAisle = 0;
+      selectedAisle = "";
       optionalNote = "Bakery Section";
     }
     else if (chosenCategory === "Bottled Water") {
@@ -228,7 +228,7 @@ $(document).ready(function () {
       selectedAisle = 6;
     }
     else if (chosenCategory === "Checkout") {
-      selectedAisle = 0;
+      selectedAisle = "";
       optionalNote = "At checkout";
     }
     else if (chosenCategory === "Chips/Nuts") {
@@ -238,7 +238,7 @@ $(document).ready(function () {
       selectedAisle = 2;
     }
     else if (chosenCategory === "Deli/Prepared Foods") {
-      selectedAisle = 0;
+      selectedAisle = "";
       optionalNote = "Deli";
     }
     else if (chosenCategory === "Dish+Laundry Detergent") {
@@ -266,11 +266,11 @@ $(document).ready(function () {
       optionalNote = "Or aisle 18";
     }
     else if (chosenCategory === "Pest Control") {
-      selectedAisle = 0;
+      selectedAisle = "";
       optionalNote = "Front of Store";
     }
     else if (chosenCategory === "Produce") {
-      selectedAisle = 0;
+      selectedAisle = "";
       optionalNote = "Produce Section";
     }
     else if (chosenCategory === "Soda") {
