@@ -156,7 +156,10 @@ $(document).ready(function () {
 
     let selectedAisle;
 
-    if (chosenCategory === "Baking Items/Spices") {
+    if (chosenCategory === "Bakery/Baked Goods") {
+      selectedAisle = "Bakery/Baked Goods";
+    }
+    else if (chosenCategory === "Baking Items/Spices") {
       selectedAisle = 5;
     }
     else if (chosenCategory === "Bottled Water") {
@@ -177,6 +180,9 @@ $(document).ready(function () {
     else if (chosenCategory === "Cooking Wines/Condiments/Olives") {
       selectedAisle = 2;
     }
+    else if (chosenCategory === "Deli/Prepared Foods") {
+      selectedAisle = "Deli/Prepared Foods";
+    }
     else if (chosenCategory === "Dish+Laundry Detergent") {
       selectedAisle = 9;
     }
@@ -185,6 +191,9 @@ $(document).ready(function () {
     }
     else if (chosenCategory === "Household Goods") {
       selectedAisle = 8;
+    }
+    else if (chosenCategory === "Meat") {
+      selectedAisle = "Meat";
     }
     else if (chosenCategory === "Medicines (OTC)") {
       selectedAisle = 18;
