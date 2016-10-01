@@ -100,6 +100,11 @@ $(document).ready(function () {
     itemManager.store();
   };
 
+  Item.prototype.editItemAisle = function (text) {
+    this.aisle = text;
+    itemManager.store();
+  };
+
   submitButton.on("click", function () {
     addUserInputToProgram();
     clearInputFields();
@@ -117,6 +122,14 @@ $(document).ready(function () {
       var text = $(this).closest("h2").text();
       var id = $(this).closest(".each-idea-container").attr("id");
       itemManager.findID(id).editItemName(text);
+    }
+  });
+
+  itemsMasterContainer.on("keyup", ".editable-aisle", function (key) {
+    if (key.which === 13) {
+      var text = $(this).closest("h3").text();
+      var id = $(this).closest(".each-idea-container").attr("id");
+      itemManager.findID(id).editItemAisle(text);
     }
   });
 
