@@ -159,11 +159,23 @@ $(document).ready(function () {
     if (chosenCategory === "Baking Items/Spices") {
       selectedAisle = 5;
     }
+    else if (chosenCategory === "Breads/PBJ/Honey") {
+      selectedAisle = 13;
+    }
+    else if (chosenCategory === "Canned Beans/Tomatoes/Soups") {
+      selectedAisle = 7;
+    }
     else if (chosenCategory === "Canned Fish/Ethnic Foods/Pasta+Pasta Sauce/Rice") {
       selectedAisle = 6;
     }
     else if (chosenCategory === "Cooking Wines/Condiments/Olives") {
       selectedAisle = 2;
+    }
+    else if (chosenCategory === "Dish+Laundry Detergent") {
+      selectedAisle = 9;
+    }
+    else if (chosenCategory === "Household Goods") {
+      selectedAisle = 8;
     }
 
     aisleInput.val(selectedAisle);
