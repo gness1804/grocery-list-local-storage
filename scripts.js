@@ -21,10 +21,10 @@ $(document).ready(function () {
   Item.prototype.toHTML = function () {
     return $(`
       <section id=${this.id} class="each-idea-container">
-        <h2 contenteditable="true" class="editable-item"> Item: ${this.item}</h2>
-        <h3 contenteditable="true" class="editable-aisle"> Aisle: ${this.aisle}</h3>
-        <h4 class="note"> Note: ${this.note}</h4>
-        <h5 class="quantity"> Quantity: ${this.quantity}</h5>
+        <h2 contenteditable="true" class="editable-item"> ${this.item}</h2>
+        <h3 contenteditable="true" class="editable-aisle"> ${this.aisle}</h3>
+        <h4 contenteditable="true" class="note"> ${this.note}</h4>
+        <h5 contenteditable="true" class="quantity"> ${this.quantity}</h5>
         <p>Id: ${this.id}</p>
         <button class="delete-button"> Delete Item</button>
       </section>
@@ -95,8 +95,8 @@ $(document).ready(function () {
 
   }; // end of itemManager
 
-  Item.prototype.editItemName = function (itemText) {
-    this.item = itemText;
+  Item.prototype.editItemName = function (text) {
+    this.item = text;
     itemManager.store();
   };
 
@@ -114,9 +114,9 @@ $(document).ready(function () {
 
   itemsMasterContainer.on("keyup", ".editable-item", function (key) {
     if (key.which === 13) {
-      var itemText = $(this).closest("h2").text();
+      var text = $(this).closest("h2").text();
       var id = $(this).closest(".each-idea-container").attr("id");
-      itemManager.findID(id).editItemName(itemText);
+      itemManager.findID(id).editItemName(text);
     }
   });
 
