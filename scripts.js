@@ -191,8 +191,11 @@ $(document).ready(function () {
   });
 
   deleteAllItemsButton.on("click", function () {
-    itemManager.deleteAllItems();
-  });
+    let confirmDelete = confirm("Warning! You are about to delete ALL your items! This cannot be undone! Please OK to delete all your items.");
+    if (confirmDelete) {
+      itemManager.deleteAllItems();
+    }
+  }); // end of deleteAllItemsButton function
 
   function addUserInputToProgram() {
     var newItem = itemInput.val();
