@@ -26,6 +26,15 @@ input {
   cursor: pointer;
 }
 
+#sort-items-button {
+  background-color: rgb(207, 244, 245);
+}
+
+#sort-items-button:hover {
+  background-color: rgb(142, 223, 223);
+  cursor: pointer;
+}
+
 #item-status-message {
   font-size: 24px;
   margin: 30px auto;
