@@ -22,7 +22,7 @@ input:hover {
   border: 1px solid magenta;
 }
 
-@media screen and (max-width: 500px) { /* for smartphones */
+@media screen and (max-width: 800px) { /* for smartphones */
   input, select {
     display: block;
     margin: auto;
