@@ -191,7 +191,7 @@ $(document).ready(function () {
   });
 
   deleteAllItemsButton.on("click", function () {
-    let confirmDelete = confirm("Warning! You are about to delete ALL your items! This cannot be undone! Please OK to delete all your items.");
+    let confirmDelete = confirm("Warning! You are about to delete ALL your items! This cannot be undone!");
     if (confirmDelete) {
       itemManager.deleteAllItems();
     }
