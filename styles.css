@@ -70,6 +70,10 @@ input:hover {
   text-align: center;
 }
 
+.each-idea-container h2 {
+  font-weight: bold;
+}
+
 .each-idea-container h4 {
   font-style: italic;
 }
