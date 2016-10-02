@@ -23,9 +23,10 @@ input:hover {
 }
 
 @media screen and (max-width: 500px) { /* for smartphones */
-  input {
+  input, select {
     display: block;
     margin: auto;
+    width: 200px;
   }
 }
 
@@ -58,6 +59,7 @@ input:hover {
   border: 1px solid black;
   margin: 50px auto;
   min-height: 400px;
+  padding: 0 10px;
 }
 
 .each-idea-container {
