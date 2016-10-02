@@ -1,8 +1,12 @@
 html {
+  background: linear-gradient(to bottom, rgb(134, 148, 247), rgb(252, 253, 254));
+  font-family: 'Open Sans', sans-serif;
+  height: 2000px;
   text-align: center;
 }
 
 h1 {
+  font-size: 40px;
   text-align: center;
 }
 
@@ -14,10 +18,15 @@ input {
   border: 1px solid black;
 }
 
-@media screen and (max-width: 500px) { /* for smartphones */
-  input {
+input:hover {
+  border: 1px solid magenta;
+}
+
+@media screen and (max-width: 800px) { /* for smartphones */
+  input, select {
     display: block;
-    margin: auto;
+    margin: 10px auto;
+    width: 200px;
   }
 }
 
@@ -41,6 +50,7 @@ input {
 
 #item-status-message {
   font-size: 24px;
+  font-style: italic;
   margin: 30px auto;
   text-align: center;
 }
@@ -49,11 +59,14 @@ input {
   border: 1px solid black;
   margin: 50px auto;
   min-height: 400px;
+  padding: 0 10px;
 }
 
 .each-idea-container {
+  background-color: white;
   border: 1px solid black;
   margin: 20px auto;
+  padding: 10px;
   text-align: center;
 }
 
