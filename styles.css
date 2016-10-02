@@ -1,4 +1,7 @@
 html {
+  background: linear-gradient(to bottom, rgb(134, 148, 247), rgb(252, 253, 254));
+  font-family: 'Open Sans', sans-serif;
+  height: 2000px;
   text-align: center;
 }
 
