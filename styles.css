@@ -1,3 +1,7 @@
+html {
+  text-align: center;
+}
+
 h1 {
   text-align: center;
 }
@@ -26,11 +30,11 @@ input {
   cursor: pointer;
 }
 
-#sort-items-button {
+#sort-items-button, #top-of-page-button {
   background-color: rgb(207, 244, 245);
 }
 
-#sort-items-button:hover {
+#sort-items-button:hover, #top-of-page-button:hover {
   background-color: rgb(142, 223, 223);
   cursor: pointer;
 }
