@@ -263,6 +263,7 @@ $(document).ready(function () {
     }
     else if (chosenCategory === "Household Goods") {
       selectedAisle = 8;
+      optionalNote = "Or aisle 9";
     }
     else if (chosenCategory === "Meat") {
       selectedAisle = "";
